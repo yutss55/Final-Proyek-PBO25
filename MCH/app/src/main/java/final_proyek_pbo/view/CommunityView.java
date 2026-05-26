@@ -4,6 +4,7 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -84,4 +85,6 @@ public class CommunityView extends ScrollPane {
         cardsGrid.setPrefWrapLength(newVal.doubleValue() - 40);
         });
     }
+
+    
 }

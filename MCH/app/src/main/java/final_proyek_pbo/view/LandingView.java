@@ -20,33 +20,21 @@ public class LandingView {
     public LandingView() {
         root = new BorderPane();
         Label apk = new Label("PINISI");
-        // root.setCenter(apk);
         apk.setFont(Font.font("Inter", FontWeight.BOLD, 36));
-                    apk.setStyle(
-                "-fx-font-size: 30px;" +
-                "-fx-font-weight: bold;" +
-                "-fx-text-fill: white;"
-            );
+        apk.getStyleClass().add("logo");
 
         HBox navbar = new HBox();
         navbar.setSpacing(20);
         navbar.setAlignment(Pos.CENTER_LEFT);
 
         Button btnhome = new Button("Home");
-        btnhome.setStyle("-fx-background-color: transparent;-fx-text-fill: white;");
+        btnhome.getStyleClass().add("nav-button");
         Button btncommunity = new Button("Community");
-        btncommunity.setStyle("-fx-background-color: transparent;-fx-text-fill: white;");
+        btncommunity.getStyleClass().add("nav-button");
         Button btnEvent = new Button("Event");
-        btnEvent.setStyle("-fx-background-color: transparent; -fx-text-fill: white;");
+        btnEvent.getStyleClass().add("nav-button");
         Button btnLogin = new Button("Login");
-        btnLogin.setStyle(
-            "-fx-background-color: transparent;" +
-            "-fx-text-fill: white;" +
-            "-fx-border-color: white;" +
-            "-fx-border-radius: 20;" +
-            "-fx-background-radius: 20;" +
-            "-fx-padding: 1 10 1 10;"
-        );
+        btnLogin.getStyleClass().add("login-button");
                 
 
         Region spacer = new Region();
@@ -70,40 +58,28 @@ public class LandingView {
         leftcontent.setAlignment(Pos.CENTER_LEFT);
 
         Label title = new Label("Pintar Ningkatin\nSkill IT");
-        title.setStyle( "-fx-font-size: 40px;" +
-                        "-fx-font-weight: bold;"+ 
-                        "-fx-text-fill: white");
+        title.getStyleClass().add("hero-title");
         Label text = new Label("Platform Pengembangan Talenta Digital\nMasyarakat Kota Makassar");
-        text.setStyle("-fx-font-size: 15px;"+ "-fx-text-fill: white");
+        text.getStyleClass().add("hero-description");
         Button btnStart = new Button("Get Started");
-        btnStart.setStyle(
-            "-fx-background-color: #6D4AFF;" +
-            "-fx-border-color: white;"+
-            "-fx-text-fill: white;" +
-            "-fx-font-size: 15px;" +
-            "-fx-font-weight: bold;" +
-            "-fx-background-radius: 25;" +
-            "-fx-border-radius: 40;"+
-            "-fx-padding: 12 25 12 25;"
-        );
+        btnStart.getStyleClass().add("start-button");
 
         leftcontent.getChildren().addAll(title, text, btnStart);
         leftcontent.setSpacing(20);
 
-        Image image = new Image(
-                getClass().getResourceAsStream("/images/maskot.png")
+       Image image = new Image(
+            getClass().getResource("/images/maskot.png").toExternalForm()
         );
 
         ImageView mascot = new ImageView(image);
+
 
         mascot.setFitWidth(350);
         mascot.setPreserveRatio(true);
         
         pict.getChildren().addAll(leftcontent, mascot);
         root.setCenter(pict);
-        root.setStyle(
-             "-fx-background-color: linear-gradient(to right, #000033, #0600AB);"
-        );
+        root.getStyleClass().add("landing-root");
     }
 
     public BorderPane getView() {

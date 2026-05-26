@@ -33,7 +33,7 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass = 'final_proyek_pbo.App'
+    mainClass = 'final_proyek_pbo.Main'
 }
 
 javafx{ 
