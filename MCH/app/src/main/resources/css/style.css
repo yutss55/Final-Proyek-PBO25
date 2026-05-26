@@ -1,0 +1,101 @@
+@font-face {
+    font-family: "Inter";
+    src: url("../fonts/Inter-Regular.ttf");
+}
+@font-face {
+    font-family: "Inter Bold";
+    src: url("../fonts/Inter-Regular.ttf");
+}
+.root {
+    -fx-font-family: "Inter";
+}
+.landing-root{
+    -fx-background-color: linear-gradient(to right, #000033, #0600AB);
+}
+.logo{
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+.nav-button{
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+.login-button{
+    -fx-background-color: transparent;
+    -fx-text-fill: rgb(22, 13, 45);
+    -fx-border-color: white;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-padding: 1 10 1 10;
+}
+.hero-title{
+    -fx-font-size: 40px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+.hero-description{
+    -fx-font-size: 15px;
+    -fx-text-fill: white;
+}
+.start-button{
+    -fx-background-color: #5731A5;
+    -fx-border-color: white;
+    -fx-text-fill: white;
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 25;
+    -fx-border-radius: 40;
+    -fx-padding: 10 30 10 30;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 20, 0.2, 0, 5);
+}
+
+.login-root {
+    -fx-background-color: linear-gradient(to right, #000033, #0600AB);
+}
+
+.login-card {
+    -fx-background-color: rgba(35,25,90,0.55);
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-border-color: rgba(255,255,255,0.15);
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(0,0,0,0.4),
+        20,
+        0.2,
+        0,
+        5
+    );
+}
+
+.login-title {
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: rgb(255, 255, 255);
+}
+
+.login-field {
+    -fx-background-color: transparent;
+    -fx-border-color: white;
+
+    -fx-border-radius: 25;
+    -fx-background-radius: 25;
+
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: rgba(255,255,255,0.6);
+}
+
+.login-button {
+    -fx-background-color: #B9C4E2;
+
+    -fx-background-radius: 25;
+
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.login-link {
+    -fx-text-fill: rgb(255, 255, 255);
+}
