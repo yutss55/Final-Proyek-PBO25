@@ -16,6 +16,8 @@ public class LoginView {
     private BorderPane root;
     private Button loginbtn;
     private Hyperlink createAccount;
+    private TextField email;
+    private PasswordField password;
 
     public LoginView() {
 
@@ -27,12 +29,12 @@ public class LoginView {
         Label greetings = new Label("Welcome Back!");
         greetings.getStyleClass().add("login-title");
 
-        TextField email = new TextField();
+        email = new TextField();
         email.setPromptText("Email/Username");
         email.setMaxWidth(300);
         email.getStyleClass().add("login-field");
 
-        PasswordField password = new PasswordField();
+        password = new PasswordField();
         password.setPromptText("Password");
         password.setMaxWidth(300);
         password.getStyleClass().add("login-field");
@@ -79,5 +81,11 @@ public class LoginView {
     }
     public Button getLoginButton() {
     return loginbtn;
+    }
+    public TextField getEmailField(){
+        return email;
+    }
+    public PasswordField getPasswordField(){
+        return password;
     }
 }
