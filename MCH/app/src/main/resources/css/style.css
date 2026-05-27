@@ -1,10 +1,10 @@
 @font-face {
     font-family: "Inter";
-    src: url("../fonts/Inter-Regular.ttf");
+    src: url("../fonts/Inter_24pt-Bold.ttf");
 }
 @font-face {
     font-family: "Inter Bold";
-    src: url("../fonts/Inter-Regular.ttf");
+    src: url("../fonts/Inter_28pt-Regular.ttf");
 }
 .root {
     -fx-font-family: "Inter";

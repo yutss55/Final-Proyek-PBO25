@@ -17,6 +17,10 @@ public class RegisterView {
     private BorderPane root;
     private Hyperlink loginLink;
     private Button registbtn;
+    private TextField name;
+    private TextField email;
+    private PasswordField password;
+    private PasswordField confirmPassword;
 
     public RegisterView() {
 
@@ -28,22 +32,22 @@ public class RegisterView {
         Label greetings = new Label("Let's Get Started!");
         greetings.getStyleClass().add("login-title");
 
-        TextField name = new TextField();
+        name = new TextField();
         name.setPromptText("Full Name");
         name.setMaxWidth(300);
         name.getStyleClass().add("login-field");
 
-        TextField email = new TextField();
+        email = new TextField();
         email.setPromptText("Email");
         email.setMaxWidth(300);
         email.getStyleClass().add("login-field");
 
-        PasswordField password = new PasswordField();
+        password = new PasswordField();
         password.setPromptText("Password");
         password.setMaxWidth(300);
         password.getStyleClass().add("login-field");
 
-        PasswordField confirmPassword = new PasswordField();
+        confirmPassword = new PasswordField();
         confirmPassword.setPromptText("Confirm Password");
         confirmPassword.setMaxWidth(300);
         confirmPassword.getStyleClass().add("login-field");
@@ -89,5 +93,20 @@ public class RegisterView {
     }
     public Button getRegisterButton() {
         return registbtn;
+    }
+    public TextField getNameField() {
+    return name;
+    }
+
+    public TextField getEmailField() {
+        return email;
+    }
+
+    public PasswordField getPasswordField() {
+        return password;
+    }
+
+    public PasswordField getConfirmPasswordField() {
+        return confirmPassword;
     }
 }

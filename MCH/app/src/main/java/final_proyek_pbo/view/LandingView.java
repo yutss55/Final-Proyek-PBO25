@@ -16,6 +16,8 @@ import javafx.scene.image.ImageView;
 
 public class LandingView {
     private BorderPane root;
+    private Button btnLogin;
+    private Button btnStart;
 
     public LandingView() {
         root = new BorderPane();
@@ -33,7 +35,7 @@ public class LandingView {
         btncommunity.getStyleClass().add("nav-button");
         Button btnEvent = new Button("Event");
         btnEvent.getStyleClass().add("nav-button");
-        Button btnLogin = new Button("Login");
+        btnLogin = new Button("Login");
         btnLogin.getStyleClass().add("login-button");
                 
 
@@ -61,7 +63,7 @@ public class LandingView {
         title.getStyleClass().add("hero-title");
         Label text = new Label("Platform Pengembangan Talenta Digital\nMasyarakat Kota Makassar");
         text.getStyleClass().add("hero-description");
-        Button btnStart = new Button("Get Started");
+        btnStart = new Button("Get Started");
         btnStart.getStyleClass().add("start-button");
 
         leftcontent.getChildren().addAll(title, text, btnStart);
@@ -84,5 +86,11 @@ public class LandingView {
 
     public BorderPane getView() {
         return root;
+    }
+    public Button getLoginbtn (){
+        return btnLogin;
+    }
+    public Button getStartbtn(){
+        return btnStart;
     }
 }
