@@ -1,5 +1,4 @@
-package final_proyek_pbo.view; // ⬅️ Sesuaikan nama package depannya
-
+package final_proyek_pbo.view; 
 import final_proyek_pbo.model.JalurKarir; 
 import final_proyek_pbo.model.Soal;       
 import final_proyek_pbo.model.Tahapan;    
@@ -351,7 +350,7 @@ public class RoadmapView extends BorderPane {
                 
                 Alert infoHasil = new Alert(Alert.AlertType.INFORMATION);
                 infoHasil.setTitle("Hasil Kuis");
-                infoHasil.setHeaderText(nilaiAkhir >= 70 ? " Selamat, Kamu Lulus!" : "❌ Maaf, Kamu Belum Lulus");
+                infoHasil.setHeaderText(nilaiAkhir >= 70 ? " Selamat, Kamu Lulus!" : "Maaf, Kamu Belum Lulus");
                 infoHasil.setContentText("Skor Kamu: " + String.format("%.0f", nilaiAkhir) + "\nJawaban Benar: " + skorBenar + " dari " + daftarSoal.size() + " soal.");
                 infoHasil.showAndWait();
 
