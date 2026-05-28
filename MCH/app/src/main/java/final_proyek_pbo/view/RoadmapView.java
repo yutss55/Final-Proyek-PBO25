@@ -351,7 +351,7 @@ public class RoadmapView extends BorderPane {
                 
                 Alert infoHasil = new Alert(Alert.AlertType.INFORMATION);
                 infoHasil.setTitle("Hasil Kuis");
-                infoHasil.setHeaderText(nilaiAkhir >= 70 ? "🎉 Selamat, Kamu Lulus!" : "❌ Maaf, Kamu Belum Lulus");
+                infoHasil.setHeaderText(nilaiAkhir >= 70 ? " Selamat, Kamu Lulus!" : "❌ Maaf, Kamu Belum Lulus");
                 infoHasil.setContentText("Skor Kamu: " + String.format("%.0f", nilaiAkhir) + "\nJawaban Benar: " + skorBenar + " dari " + daftarSoal.size() + " soal.");
                 infoHasil.showAndWait();
 
