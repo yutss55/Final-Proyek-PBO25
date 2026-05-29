@@ -1,10 +1,9 @@
-<<<<<<< HEAD
 # Ignore Gradle project-specific cache directory
 .gradle
 
 # Ignore Gradle build output directory
 build
-=======
+
 # Compiled class file
 *.class
 
@@ -25,9 +24,12 @@ build
 *.zip
 *.tar.gz
 *.rar
+
 .vscode/
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+# virtual machine crash logs
 hs_err_pid*
 replay_pid*
->>>>>>> c32fd97d6386d2f0259c0dfbfecc407ba47f7c94
+
+**/resources/video/
+*.mp4
