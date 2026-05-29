@@ -2,6 +2,7 @@ package final_proyek_pbo;
 import final_proyek_pbo.view.LandingView;
 import final_proyek_pbo.view.LoginView;
 import final_proyek_pbo.view.RegisterView;
+import final_proyek_pbo.view.HomeView;
 import javafx.application.Application;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.control.Alert;
@@ -9,16 +10,25 @@ import final_proyek_pbo.model.User;
 import final_proyek_pbo.data.UserData;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.scene.text.Font;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        Font.loadFont(getClass().getResource("/fonts/Inter_28pt-Regular.ttf").toExternalForm(), 14);
+        Font.loadFont(getClass().getResource("/fonts/Inter_24pt-Bold.ttf").toExternalForm(), 14);
+        System.out.println(
+            Font.loadFont(
+                getClass().getResourceAsStream("/fonts/Inter_28pt-Regular.ttf"),
+                14
+            )
+        );
 
         Scene scene = new Scene(
                new BorderPane(),
                 1000,
-                700
+                780
         );
 
         scene.getStylesheets().add(
@@ -56,27 +66,19 @@ public class Main extends Application {
                 alert.setHeaderText(null);
                 alert.setContentText("Email dan Password harus diisi!");
                 alert.showAndWait();
-
                 return;
             }
 
 
             for(User user : UserData.users){
                 if (user.getEmail().equals(email) && user.getPassword().equals(password)){
-
                     UserData.currentUser = user;
-
                     loginBerhasil = true;
                       break;
                 };
             }
-
             if(loginBerhasil){
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Berhasil");
-                alert.setHeaderText(null);
-                alert.setContentText("Login Berhasil!");
-                alert.showAndWait();
+                showHome(scene);
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Login gagal");
@@ -84,11 +86,8 @@ public class Main extends Application {
                 alert.setContentText("Email atau password salah!");
                 alert.showAndWait();
                 }
-
-        
         });
         scene.setRoot(loginView.getView());
-
     }
     private void showRegister(Scene scene) {
 
@@ -156,12 +155,15 @@ public class Main extends Application {
             alert.setHeaderText(null);
             alert.setContentText("Registrasi berhasil!");
             alert.showAndWait();
-
             showLogin(scene);
 
         });
-
+        
         scene.setRoot(registerView.getView());
+    }
+    private void showHome(Scene scene){
+        HomeView homeView = new HomeView();
+        scene.setRoot(homeView);
     }
 
     public static void main(String[] args) {

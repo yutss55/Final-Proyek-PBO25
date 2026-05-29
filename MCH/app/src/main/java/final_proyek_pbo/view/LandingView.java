@@ -19,70 +19,81 @@ public class LandingView {
     private Button btnLogin;
     private Button btnStart;
 
-    public LandingView() {
-        root = new BorderPane();
-        Label apk = new Label("PINISI");
-        apk.setFont(Font.font("Inter", FontWeight.BOLD, 36));
-        apk.getStyleClass().add("logo");
+   public LandingView() {
+    root = new BorderPane();
 
-        HBox navbar = new HBox();
-        navbar.setSpacing(20);
-        navbar.setAlignment(Pos.CENTER_LEFT);
+    javafx.scene.shape.Circle dot = new javafx.scene.shape.Circle(7);
+    dot.setFill(javafx.scene.paint.Color.web("#7C5CBF"));
 
-        Button btnhome = new Button("Home");
-        btnhome.getStyleClass().add("nav-button");
-        Button btncommunity = new Button("Community");
-        btncommunity.getStyleClass().add("nav-button");
-        Button btnEvent = new Button("Event");
-        btnEvent.getStyleClass().add("nav-button");
-        btnLogin = new Button("Login");
-        btnLogin.getStyleClass().add("login-button");
-                
+    Label apk = new Label("PINISI");
+    apk.setFont(Font.font("Inter", FontWeight.BOLD, 20));
+    apk.getStyleClass().add("logo");
 
-        Region spacer = new Region();
-        HBox.setHgrow(spacer, Priority.ALWAYS);
+    HBox logoBox = new HBox(10, dot, apk);
+    logoBox.setAlignment(Pos.CENTER_LEFT);
 
-        navbar.getChildren().addAll(apk, spacer, btnhome, btncommunity, btnEvent, btnLogin);
-        root.setTop(navbar);
-        navbar.setPadding(
-            new Insets(25, 60, 25, 60)
-                );
+    Button btnhome = new Button("Home");
+    btnhome.getStyleClass().add("nav-btn");
+    Button btnProgram = new Button("Program");
+    btnProgram.getStyleClass().add("nav-btn");
+    Button btncommunity = new Button("Community");
+    btncommunity.getStyleClass().add("nav-btn");
+    Button btnEvent = new Button("Event");
+    btnEvent.getStyleClass().add("nav-btn");
+    btnLogin = new Button("Login");
+    btnLogin.getStyleClass().add("nav-btn-active");
 
-        HBox pict = new HBox();
-        pict.setSpacing(250);
-        pict.setAlignment(Pos.CENTER_LEFT);
-        pict.setPadding(
-            new Insets(90, 100, 90, 100)
-        );
+    Region spacer = new Region();
+    HBox.setHgrow(spacer, Priority.ALWAYS);
 
-        VBox leftcontent = new VBox();
-        leftcontent.setSpacing(25);
-        leftcontent.setAlignment(Pos.CENTER_LEFT);
+    HBox navbar = new HBox(16);
+    navbar.setAlignment(Pos.CENTER_LEFT);
+    navbar.setPadding(new Insets(10, 24, 10, 20));
+    navbar.getStyleClass().add("navbar");
+    navbar.setMaxWidth(Double.MAX_VALUE);
+    navbar.getChildren().addAll(logoBox, spacer, btnhome, btnProgram, btncommunity, btnEvent, btnLogin);
 
-        Label title = new Label("Pintar Ningkatin\nSkill IT");
-        title.getStyleClass().add("hero-title");
-        Label text = new Label("Platform Pengembangan Talenta Digital\nMasyarakat Kota Makassar");
-        text.getStyleClass().add("hero-description");
-        btnStart = new Button("Get Started");
-        btnStart.getStyleClass().add("start-button");
+    HBox navbarContainer = new HBox(navbar);
+    navbarContainer.setPadding(new Insets(20, 24, 0, 24));
+    HBox.setHgrow(navbar, Priority.ALWAYS);
 
-        leftcontent.getChildren().addAll(title, text, btnStart);
-        leftcontent.setSpacing(20);
+    root.setTop(navbarContainer);
 
-       Image image = new Image(
-            getClass().getResource("/images/maskot.png").toExternalForm()
-        );
+    VBox leftcontent = new VBox(18);
+    leftcontent.setAlignment(Pos.CENTER_LEFT);
+    leftcontent.setPadding(new Insets(0, 0, 0, 80));
 
-        ImageView mascot = new ImageView(image);
+    Label title = new Label("Pintar Ningkatin\nSkill IT");
+    title.getStyleClass().add("hero-title");
 
+    Label text = new Label("Platform Pengembangan Talenta Digital\nMasyarakat Kota Makassar.");
+    text.getStyleClass().add("hero-description");
 
-        mascot.setFitWidth(350);
-        mascot.setPreserveRatio(true);
-        
-        pict.getChildren().addAll(leftcontent, mascot);
-        root.setCenter(pict);
-        root.getStyleClass().add("landing-root");
-    }
+    btnStart = new Button("Get Started");
+    btnStart.getStyleClass().add("start-button");
+
+    leftcontent.getChildren().addAll(title, text, btnStart);
+    HBox.setHgrow(leftcontent, Priority.ALWAYS);
+
+    Image image = new Image(
+        getClass().getResource("/images/maskot.png").toExternalForm()
+    );
+    ImageView mascot = new ImageView(image);
+    mascot.setFitWidth(430);
+    mascot.setPreserveRatio(true);
+
+    HBox mascotBox = new HBox(mascot);
+    mascotBox.setAlignment(Pos.BOTTOM_RIGHT);
+    mascotBox.setPadding(new Insets(0, 40, 0, 0));
+
+    HBox pict = new HBox();
+    pict.setAlignment(Pos.CENTER);
+    pict.setPadding(new Insets(40, 0, 0, 0));
+    pict.getChildren().addAll(leftcontent, mascotBox);
+
+    root.setCenter(pict);
+    root.getStyleClass().add("landing-root");
+}
 
     public BorderPane getView() {
         return root;
