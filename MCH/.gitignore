@@ -31,3 +31,5 @@ build
 hs_err_pid*
 replay_pid*
 >>>>>>> c32fd97d6386d2f0259c0dfbfecc407ba47f7c94
+**/resources/video/
+*.mp4

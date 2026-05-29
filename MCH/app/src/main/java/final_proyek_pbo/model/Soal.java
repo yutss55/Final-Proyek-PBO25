@@ -1,4 +1,4 @@
-package final_proyek_pbo.model; 
+package final_proyek_pbo.model;
 
 public class Soal {
     private String pertanyaan;
