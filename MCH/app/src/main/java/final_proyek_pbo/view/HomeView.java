@@ -1,145 +1,6 @@
-// package final_proyek_pbo.view;
-// import javafx.geometry.Insets;
-// import javafx.geometry.Pos;
-// import javafx.scene.control.Button;
-// import javafx.scene.image.Image;
-// import javafx.scene.image.ImageView;
-// import javafx.scene.layout.HBox;
-// import javafx.scene.layout.Priority;
-// import javafx.scene.layout.Region;
-// import javafx.scene.layout.StackPane;
-// import javafx.scene.layout.VBox;
-// import javafx.scene.control.Label;
-
-// public class HomeView extends VBox {
-//     public HomeView(){
-//         this.getStyleClass().add("main-bg");
-//         this.setSpacing(16);
-
-//         this.getChildren().addAll(buildNavbar(), buildMainDashboardArea(), buildMenuCards());
-//     }
-//     private HBox buildNavbar() {
-//         Button btnHome = new Button ("Home");
-//         btnHome.getStyleClass().add("nav-btn-active");
-//         Button btnProgram =new Button ("Program");
-//         btnProgram.getStyleClass().add("nav-btn");
-//         Button btnCommunity = new Button ("Community");
-//         btnCommunity.getStyleClass().add("nav-btn");
-//         Button btnRoadMap = new Button ("Road Map");
-//         btnRoadMap.getStyleClass().add("nav-btn");
-//         Button btnCircle = new Button ("");
-//         btnCircle.getStyleClass().add("nav-circle");
-
-
-//         Region spacer = new Region ();
-//         HBox.setHgrow(spacer, Priority.ALWAYS);
-
-//         HBox navbar = new HBox(4, btnHome, btnProgram, btnCommunity, btnRoadMap, spacer, btnCircle);
-//         navbar.getStyleClass().add("navbar-container");
-//         navbar.setAlignment(Pos.CENTER_LEFT);
-//         VBox.setMargin(navbar, new Insets(15,15,0,15));
-
-//         return navbar;
-//     }
-
-//     private ImageView insertIcon (String filename, double size){
-//         Image icon = new Image(getClass().getResourceAsStream("/images/" + filename));
-//         ImageView iv = new ImageView(icon);
-//         iv.setFitWidth(size);
-//         iv.setFitHeight(size);
-//         iv.setPreserveRatio(true);
-//         return iv;
-//     }
-
-//      private StackPane buildMainDashboardArea() {
-//         StackPane areaTengah = new StackPane();
-//         areaTengah.setAlignment(Pos.BOTTOM_RIGHT);
-//         VBox.setVgrow(areaTengah, Priority.ALWAYS);
-//         VBox.setMargin(areaTengah, new Insets(0, 15, 0, 15));
-
-//         VBox dashboardPanel = new VBox(15);
-//         dashboardPanel.getStyleClass().add("content-panel"); 
-//         dashboardPanel.setPadding(new Insets(20));
-//         dashboardPanel.setMinHeight(420); 
-//         VBox.setVgrow(dashboardPanel, Priority.ALWAYS);
-
-//         ImageView homeIcon = insertIcon("home.png", 70);
-//         StackPane iconBox = new StackPane(homeIcon);
-//         iconBox.getStyleClass().add("icon-box");
-
-//         Label titleLabel = new Label("Dashboard");
-//         titleLabel.getStyleClass().add("title-label");
-//         Label statusLabel = new Label("Status: Online");
-//         statusLabel.getStyleClass().add("status-label");
-
-//         VBox textBox = new VBox(3, titleLabel, statusLabel);
-//         textBox.setAlignment(Pos.CENTER_LEFT);
-
-//         HBox headerRow = new HBox(16, iconBox, textBox);
-//         headerRow.setAlignment(Pos.CENTER_LEFT);
-
-//         dashboardPanel.getChildren().add(headerRow);
-
-//         ImageView mascot = insertIcon("character.png", 520);
-//         areaTengah.setAlignment(Pos.BOTTOM_RIGHT);
-//         mascot.setTranslateY(0);  
-//         mascot.setTranslateX(0);  
-//         StackPane.setAlignment(mascot, Pos.BOTTOM_RIGHT);
-//         StackPane.setMargin(mascot, new Insets(0, 20, -80, 0));
-
-//         areaTengah.getChildren().addAll(dashboardPanel, mascot);
-
-//         return areaTengah;
-//     }
-//     private HBox buildMenuCards(){
-//         HBox row = new HBox(12, 
-//             buildCard("event.png", "Event &", "Workshop", true),
-//             buildCard("komunitas.png", "Komunitas", "Kreatif", false),
-//             buildCard("booking.png", "Booking", "Fasilitas", true),
-//             buildCard("skill.png", "Skill", "RoadMap", false)
-//          );
-//          row.setPadding(new Insets(0, 15, 15, 15));
-//          row.setPrefHeight(160);
-//          return row;
-//     }
-
-//     private VBox buildCard (String iconFile, String line1, String line2, boolean iconTop){
-//         ImageView iconImg = insertIcon(iconFile, 200);
-
-//         Label title1 = new Label(line1);
-//         title1.getStyleClass().add("card-title");
-//         Label title2 = new Label(line2);
-//         title2.getStyleClass().add("card-title");
-//         VBox titleBox = new VBox(2, title1, title2);
-
-//         Button arrow = new Button("›");
-//         arrow.getStyleClass().add("card-arrow");
-
-//         Region hSpacer = new Region();
-//         HBox.setHgrow(hSpacer, Priority.ALWAYS);
-
-//         HBox arrowRow = new HBox(hSpacer, arrow);
-//         arrowRow.setAlignment(Pos.CENTER_RIGHT);
-
-//         Region vSpacer = new Region();
-//         VBox.setVgrow(vSpacer, Priority.ALWAYS); 
-        
-//         VBox card = new VBox(6);
-//         card.getStyleClass().add("menu-card");
-//         card.setPrefHeight(160);
-//         HBox.setHgrow(card, Priority.ALWAYS);
-
-//         if (iconTop){
-//             card.getChildren().addAll(iconImg, titleBox, arrowRow);
-//         } else {
-//             HBox iconWrapper = new HBox(iconImg);
-//             iconWrapper.setAlignment(Pos.BOTTOM_RIGHT);
-//             card.getChildren().addAll(titleBox, iconWrapper, arrowRow);
-//         }
-//         return card;
-//     }
-// }
 package final_proyek_pbo.view;
+
+import javax.naming.Context;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -168,33 +29,43 @@ public class HomeView extends VBox {
         this.getChildren().addAll(buildNavbar(), buildMainDashboardArea(), buildMenuCards());
     }
 
-    private HBox buildNavbar() {
-        Button btnHome = new Button("Home");
-        btnHome.getStyleClass().add("nav-btn-active");
-        Button btnProgram = new Button("Program");
-        btnProgram.getStyleClass().add("nav-btn");
-        Button btnCommunity = new Button("Community");
-        btnCommunity.getStyleClass().add("nav-btn");
-        Button btnRoadMap = new Button("Road Map");
-        btnRoadMap.getStyleClass().add("nav-btn");
+    private Button creatNavBtn(String text){
+        Button button = new Button(text);
+        button.getStyleClass().add("nav-btn");
+        return button;
+    }
 
-        Button btnCircle = new Button("👤");
-        btnCircle.getStyleClass().add("nav-circle");
-        ContextMenu profile = new ContextMenu();
+    private ContextMenu creatprofilMenu(Button btnCircle){
+        ContextMenu profilMenu =new ContextMenu();
         MenuItem profilItem = new MenuItem("Profile");
         MenuItem setItem = new MenuItem("Settings");
         MenuItem logItem = new MenuItem("Logout");
 
-        profile.getItems().addAll(profilItem, setItem,new SeparatorMenuItem(), logItem);
-        btnCircle.setOnAction(e->{
-            profile.show(btnCircle, Side.BOTTOM, 0, 0);
-        });
         logItem.setOnAction(e->{
-            LandingView landing =new LandingView();
-            btnCircle.getScene().setRoot(landing.getView());
+            LandingView landing = new LandingView();
+            btnCircle.getScene().setRoot(
+                landing.getView()
+            );
         });
+        profilMenu.getItems().addAll(profilItem, setItem,new SeparatorMenuItem(), logItem);
 
+        return profilMenu;
+    }
 
+    private HBox buildNavbar() {
+        Button btnHome = new Button("Home");
+        btnHome.getStyleClass().add("nav-btn-active");
+        Button btnProgram = creatNavBtn("Program");
+        Button btnCommunity = creatNavBtn("Community");
+        Button btnRoadMap = creatNavBtn("Road Map");
+
+        Button btnCircle = new Button("👤");
+        btnCircle.getStyleClass().add("nav-circle");
+
+        ContextMenu profilMenu = creatprofilMenu(btnCircle);
+        btnCircle.setOnAction(e->
+            profilMenu.show(btnCircle, Side.BOTTOM, 0, 0));
+        
         Region spacer = new Region();
         HBox.setHgrow(spacer, Priority.ALWAYS);
 
@@ -226,8 +97,7 @@ public class HomeView extends VBox {
         dashboardPanel.setPadding(new Insets(30));
         dashboardPanel.setMinHeight(380); 
         VBox.setVgrow(dashboardPanel, Priority.ALWAYS);
-
-        // Ukuran ikon dashboard diperbesar ke 54 agar terlihat jelas di dalam kotak
+        
         ImageView homeIcon = insertIcon("home.png", 80);
         StackPane iconBox = new StackPane(homeIcon);
         iconBox.getStyleClass().add("icon-box");
@@ -254,9 +124,9 @@ public class HomeView extends VBox {
         dashboardText.getChildren().addAll(welcomeTitle, welcomeSub);
         dashboardPanel.getChildren().addAll(headerRow, dashboardText);
 
-        // Karakter maskot berukuran ideal agar serasi di pojok kanan bawah
+
         ImageView mascot = insertIcon("character.png", 400);
-        mascot.setMouseTransparent(true); // Agar klik mouse menembus maskot ke tombol di belakangnya
+        mascot.setMouseTransparent(true);
         
         StackPane.setAlignment(mascot, Pos.BOTTOM_RIGHT);
         StackPane.setMargin(mascot, new Insets(0, 30, -15, 0));
@@ -268,18 +138,17 @@ public class HomeView extends VBox {
 
     private HBox buildMenuCards() {
         HBox row = new HBox(16, 
-            buildCard("event.png", "Event &", "Workshop", true),
-            buildCard("komunitas.png", "Komunitas", "Kreatif", true),
-            buildCard("booking.png", "Booking", "Fasilitas", true),
-            buildCard("skill.png", "Skill", "RoadMap", true)
+            buildCard("event.png", "Event &", "Workshop"),
+            buildCard("komunitas.png", "Komunitas", "Kreatif"),
+            buildCard("booking.png", "Booking", "Fasilitas"),
+            buildCard("skill.png", "Skill", "RoadMap")
         );
         row.setPadding(new Insets(5, 15, 15, 15));
         row.setAlignment(Pos.CENTER);
         return row;
     }
 
-    private VBox buildCard(String iconFile, String line1, String line2, boolean iconTop) {
-        // Ukuran ikon menu card ditingkatkan ke 46 agar lebih menonjol
+    private VBox buildCard(String iconFile, String line1, String line2) {
         ImageView iconImg = insertIcon(iconFile, 46);
 
         Label title1 = new Label(line1);

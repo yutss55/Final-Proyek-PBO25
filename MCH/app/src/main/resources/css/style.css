@@ -263,10 +263,6 @@
     -fx-cursor: hand;
 }
 
-
-/* --- TEMA PREMIUM DARK NEON MODERN (MERGED & OPTIMIZED) --- */
-
-/* Root & Global Styling - Mengatur font global dan fokus ring */
 .root {
     -fx-font-family: "Inter", "Segoe UI", sans-serif;
     -fx-accent: #6366F1;
@@ -283,8 +279,6 @@
         #0d2060
     );
 }
-
-/* Menghilangkan garis biru kaku default JavaFX saat fokus */
 .button:focused, .menu-card:focused {
     -fx-background-insets: 0, 1, 2;
     -fx-border-color: rgba(99, 102, 241, 0.6);
@@ -293,7 +287,7 @@
 
 /* Navbar */
 .navbar-container {
-    -fx-background-color: rgba(255, 255, 255, 0.03); /* Sentuhan Glassmorphism */
+    -fx-background-color: rgba(255, 255, 255, 0.03); 
     -fx-border-color: rgba(255, 255, 255, 0.15);
     -fx-border-radius: 30;
     -fx-background-radius: 30;
