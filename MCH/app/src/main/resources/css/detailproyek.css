@@ -1,0 +1,47 @@
+.page-root {
+    -fx-background-color: linear-gradient(to bottom right, #050B2C, #14003B);
+    -fx-padding: 30px;
+}
+
+.back-button {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #0f172a;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 30;
+    -fx-border-radius: 30;
+    -fx-padding: 8 18 8 18;
+}
+
+.back-button:hover {
+    -fx-background-color: #f3f4f6;
+}
+
+.collab-card {
+    -fx-background-color: rgba(35,25,90,0.6);
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-border-color: rgba(255,255,255,0.2);
+    -fx-padding: 20;
+}
+
+.collab-card-title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #B9C4E2;
+}
+
+.collab-desc {
+    -fx-font-size: 14px;
+    -fx-text-fill: rgba(255,255,255,0.85);
+}
+
+.start-button {
+    -fx-background-color: linear-gradient(to right, #7B2FF7, #A14BFF);
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 15;
+    -fx-padding: 12 25 12 25;
+}
+
