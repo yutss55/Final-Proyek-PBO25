@@ -19,54 +19,54 @@ public class EventController {
 
     private void loadDataDummy() {
 
-        daftarEvent.add(
-                new Event(
-                        "UI/UX Design Masterclass 2026",
-                        "DESAIN",
-                        "Belajar wireframe dan prototype interaktif.",
-                        "Khoeril",
-                        "12/15",
-                        false,
-                        false
-                )
-        );
+    daftarEvent.add(
+            new Event(
+                    "AI Prompt Engineering untuk Produktivitas",
+                    "CODING",
+                    "Memanfaatkan AI generatif untuk meningkatkan produktivitas kerja dan belajar.",
+                    "Rizky Saputra",
+                    "10/15",
+                    false,
+                    false
+            )
+    );
 
-        daftarEvent.add(
-                new Event(
-                        "Flutter Mobile Development",
-                        "CODING",
-                        "Belajar membuat aplikasi Android dan IOS.",
-                        "Deng",
-                        "3/10",
-                        false,
-                        false
-                )
-        );
+    daftarEvent.add(
+            new Event(
+                    "Git & GitHub untuk Kolaborasi Tim",
+                    "CODING",
+                    "Mempelajari workflow GitHub yang digunakan dalam industri teknologi.",
+                    "Khoeril Anwar",
+                    "15/15",
+                    false,
+                    false
+            )
+    );
 
-        daftarEvent.add(
-                new Event(
-                        "Digital Marketing Basic",
-                        "BISNIS",
-                        "Strategi pemasaran digital untuk pemula.",
-                        "Akbar",
-                        "8/10",
-                        false,
-                        false
-                )
-        );
+    daftarEvent.add(
+            new Event(
+                    "UI/UX Design dengan Figma",
+                    "DESAIN",
+                    "Belajar merancang antarmuka aplikasi yang modern dan user-friendly.",
+                    "Dimas Pratama",
+                    "12/15",
+                    false,
+                    false
+            )
+    );
 
-        daftarEvent.add(
-                new Event(
-                        "Advanced UI Design",
-                        "DESAIN",
-                        "Pelajari design system dan prototyping.",
-                        "Naufal",
-                        "15/15",
-                        true,
-                        false
-                )
-        );
-    }
+    daftarEvent.add(
+            new Event(
+                    "Data Analytics dengan Power BI",
+                    "BISNIS",
+                    "Mengolah data dan membuat dashboard interaktif untuk pengambilan keputusan.",
+                    "Akbar Hidayat",
+                    "8/10",
+                    false,
+                    false
+            )
+    );
+}
 
     public ObservableList<Event> getDaftarEvent() {
         return daftarEvent;

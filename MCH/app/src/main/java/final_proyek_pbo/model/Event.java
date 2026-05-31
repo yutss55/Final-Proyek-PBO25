@@ -64,4 +64,20 @@ public class Event extends EntitasKreatif {
     public void setPenuh(boolean penuh) {
         this.penuh = penuh;
     }
+
+    public String getRegistrationId(){
+        int id = Math.abs(getNama().hashCode() % 900)+100;
+
+        return "REG-" + id;
+    }
+
+    public String getStatus(){
+        if (terdaftar){
+            return "Terdaftar";
+        }
+        if (penuh){
+            return "Penuh";
+        }
+        return "Tersedia";
+    }
 }

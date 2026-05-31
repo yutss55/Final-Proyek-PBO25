@@ -242,11 +242,10 @@ public class EventView extends ScrollPane {
         riwayatTable.setPlaceholder(buildEmptyState());
         riwayatTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
-        TableColumn<Event, String> idCol = new TableColumn<>("ID DAFTAR");
-        idCol.setCellValueFactory(data -> {
-            int uniqueId = Math.abs(data.getValue().getNama().hashCode() % 900) + 100;
-            return new SimpleStringProperty("REG-" + uniqueId);
-        });
+        TableColumn<Event, String> idCol =
+        new TableColumn<>("ID DAFTAR");
+        idCol.setCellValueFactory(data ->
+        new SimpleStringProperty(data.getValue().getRegistrationId()));
 
         TableColumn<Event, String> namaCol = new TableColumn<>("NAMA WORKSHOP");
         namaCol.setCellValueFactory(new PropertyValueFactory<>("nama"));
@@ -257,8 +256,9 @@ public class EventView extends ScrollPane {
         TableColumn<Event, String> mentorCol = new TableColumn<>("MENTOR");
         mentorCol.setCellValueFactory(new PropertyValueFactory<>("mentor"));
 
-        TableColumn<Event, String> statusCol = new TableColumn<>("STATUS");
-        statusCol.setCellValueFactory(data -> new SimpleStringProperty("Terdaftar"));
+        TableColumn<Event, String> statusCol =
+        new TableColumn<>("STATUS");
+        statusCol.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getStatus()));
 
         riwayatTable.getColumns().addAll(idCol, namaCol, kategoriCol, mentorCol, statusCol);
         riwayatTable.setItems(controller.getRiwayatPendaftaran());
