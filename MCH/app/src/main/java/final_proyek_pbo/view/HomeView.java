@@ -51,7 +51,6 @@ public class HomeView extends VBox {
 
         return profilMenu;
     }
-
     private HBox buildNavbar() {
         Button btnHome = new Button("Home");
         btnHome.getStyleClass().add("nav-btn-active");
