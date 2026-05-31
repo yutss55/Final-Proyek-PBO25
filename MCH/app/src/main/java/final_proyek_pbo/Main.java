@@ -2,6 +2,7 @@ package final_proyek_pbo;
 import final_proyek_pbo.view.LandingView;
 import final_proyek_pbo.view.LoginView;
 import final_proyek_pbo.view.RegisterView;
+import final_proyek_pbo.view.RoadmapView;
 import final_proyek_pbo.view.HomeView;
 import javafx.application.Application;
 import javafx.scene.layout.BorderPane;
@@ -26,7 +27,7 @@ public class Main extends Application {
         );
 
         Scene scene = new Scene(
-               new BorderPane(),
+               new HomeView(),
                 1000,
                 780
         );
@@ -37,7 +38,7 @@ public class Main extends Application {
                         .toExternalForm()
         );
 
-        showLanding(scene);
+        // showLanding(scene);
 
         primaryStage.setTitle("PINISI");
         primaryStage.setScene(scene);

@@ -56,6 +56,7 @@ public class HomeView extends VBox {
         Button btnHome = new Button("Home");
         btnHome.getStyleClass().add("nav-btn-active");
         Button btnProgram = creatNavBtn("Program");
+        Button btnBooking = creatNavBtn("Facilities");
         Button btnCommunity = creatNavBtn("Community");
         Button btnRoadMap = creatNavBtn("Road Map");
 
@@ -69,7 +70,7 @@ public class HomeView extends VBox {
         Region spacer = new Region();
         HBox.setHgrow(spacer, Priority.ALWAYS);
 
-        HBox navbar = new HBox(8, btnHome, btnProgram, btnCommunity, btnRoadMap, spacer, btnCircle);
+        HBox navbar = new HBox(8, btnHome, btnProgram, btnCommunity, btnBooking, btnRoadMap, spacer, btnCircle);
         navbar.getStyleClass().add("navbar-container");
         navbar.setAlignment(Pos.CENTER_LEFT);
         VBox.setMargin(navbar, new Insets(15, 15, 0, 15));
