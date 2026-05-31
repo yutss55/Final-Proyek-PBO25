@@ -3,6 +3,7 @@ package final_proyek_pbo.view;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import final_proyek_pbo.Main;
 import final_proyek_pbo.controller.EventController;
 import final_proyek_pbo.model.Event;
 import javafx.beans.property.SimpleStringProperty;
@@ -31,6 +32,11 @@ public class EventView extends ScrollPane {
 
         VBox outerContainer = new VBox(20);
         outerContainer.getStyleClass().add("event-root");
+
+        outerContainer.getStylesheets().add(
+        getClass()
+                .getResource("/css/event.css")
+                .toExternalForm());
         outerContainer.setPadding(new Insets(20));
         outerContainer.setAlignment(Pos.TOP_CENTER);
 
@@ -67,15 +73,18 @@ public class EventView extends ScrollPane {
         navbar.setMaxWidth(1100); 
 
         Button homeBtn = new Button("Home");
+        homeBtn.setOnAction(e-> Main.navigateTo("HOME"));
         homeBtn.getStyleClass().add("nav-btn");
 
         Button programBtn = new Button("Program");
         programBtn.getStyleClass().add("nav-btn-active");
 
         Button communityBtn = new Button("Community");
+        communityBtn.setOnAction(e-> Main.navigateTo("COMMUNITY"));
         communityBtn.getStyleClass().add("nav-btn");
 
         Button roadmapBtn = new Button("Road Map");
+        roadmapBtn.setOnAction(e-> Main.navigateTo("ROADMAP"));
         roadmapBtn.getStyleClass().add("nav-btn");
 
         Region spacer = new Region();
@@ -131,27 +140,27 @@ public class EventView extends ScrollPane {
         Region spacer = new Region();
         HBox.setHgrow(spacer, Priority.ALWAYS);
 
-        Button roadmapFilterBtn = createFilterButton("Road Map");
+        Button semuaFilterBtn = createFilterButton("Semua");
         Button desainBtn       = createFilterButton("Desain");
         Button codingBtn       = createFilterButton("Coding");
         Button bisnisBtn       = createFilterButton("Bisnis");
 
-        roadmapFilterBtn.getStyleClass().add("filter-btn-active");
+        semuaFilterBtn.getStyleClass().add("filter-btn-active");
 
-        roadmapFilterBtn.setOnAction(e -> {
-            resetActiveFilter(roadmapFilterBtn, desainBtn, codingBtn, bisnisBtn);
+        semuaFilterBtn.setOnAction(e -> {
+            resetActiveFilter(semuaFilterBtn, desainBtn, codingBtn, bisnisBtn);
             loadEvents(controller.getDaftarEvent());
         });
         desainBtn.setOnAction(e -> {
-            resetActiveFilter(desainBtn, roadmapFilterBtn, codingBtn, bisnisBtn);
+            resetActiveFilter(desainBtn, semuaFilterBtn, codingBtn, bisnisBtn);
             loadEvents(controller.filterKategori("DESAIN"));
         });
         codingBtn.setOnAction(e -> {
-            resetActiveFilter(codingBtn, roadmapFilterBtn, desainBtn, bisnisBtn);
+            resetActiveFilter(codingBtn, semuaFilterBtn, desainBtn, bisnisBtn);
             loadEvents(controller.filterKategori("CODING"));
         });
         bisnisBtn.setOnAction(e -> {
-            resetActiveFilter(bisnisBtn, roadmapFilterBtn, desainBtn, codingBtn);
+            resetActiveFilter(bisnisBtn, semuaFilterBtn, desainBtn, codingBtn);
             loadEvents(controller.filterKategori("BISNIS"));
         });
 
@@ -159,7 +168,7 @@ public class EventView extends ScrollPane {
                 EventIcon,
                 searchBox,
                 spacer,
-                roadmapFilterBtn,
+                semuaFilterBtn,
                 desainBtn,
                 codingBtn,
                 bisnisBtn

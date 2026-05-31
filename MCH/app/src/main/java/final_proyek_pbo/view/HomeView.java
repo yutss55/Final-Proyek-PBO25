@@ -1,6 +1,7 @@
 package final_proyek_pbo.view;
 
 import javax.naming.Context;
+import final_proyek_pbo.Main;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -55,9 +56,13 @@ public class HomeView extends VBox {
         Button btnHome = new Button("Home");
         btnHome.getStyleClass().add("nav-btn-active");
         Button btnProgram = creatNavBtn("Program");
+        btnProgram.setOnAction(e-> Main.navigateTo("EVENT"));
         Button btnBooking = creatNavBtn("Facilities");
+        btnBooking.setOnAction(e-> Main.navigateTo("BOOKING"));
         Button btnCommunity = creatNavBtn("Community");
+        btnCommunity.setOnAction(e-> Main.navigateTo("COMMUNITY"));
         Button btnRoadMap = creatNavBtn("Road Map");
+        btnRoadMap.setOnAction(e-> Main.navigateTo("ROADMAP"));
 
         Button btnCircle = new Button("👤");
         btnCircle.getStyleClass().add("nav-circle");
@@ -138,17 +143,17 @@ public class HomeView extends VBox {
 
     private HBox buildMenuCards() {
         HBox row = new HBox(16, 
-            buildCard("event.png", "Event &", "Workshop"),
-            buildCard("komunitas.png", "Komunitas", "Kreatif"),
-            buildCard("booking.png", "Booking", "Fasilitas"),
-            buildCard("skill.png", "Skill", "RoadMap")
+            buildCard("event.png", "Event &", "Workshop", ()-> Main.navigateTo("EVENT")),
+            buildCard("komunitas.png", "Komunitas", "Kreatif", ()-> Main.navigateTo("COMMUNITY")),
+            buildCard("booking.png", "Booking", "Fasilitas",()-> Main.navigateTo("BOOKING")),
+            buildCard("skill.png", "Skill", "RoadMap",()->Main.navigateTo("ROADMAP"))
         );
         row.setPadding(new Insets(5, 15, 15, 15));
         row.setAlignment(Pos.CENTER);
         return row;
     }
 
-    private VBox buildCard(String iconFile, String line1, String line2) {
+    private VBox buildCard(String iconFile, String line1, String line2, Runnable action) {
         ImageView iconImg = insertIcon(iconFile, 46);
 
         Label title1 = new Label(line1);
@@ -159,6 +164,7 @@ public class HomeView extends VBox {
 
         Button arrow = new Button("→");
         arrow.getStyleClass().add("card-arrow");
+        arrow.setOnAction(e-> action.run());
 
         Region hSpacer = new Region();
         HBox.setHgrow(hSpacer, Priority.ALWAYS);
