@@ -38,12 +38,15 @@ public class Main extends Application {
     primaryStage.setScene(scene);
     primaryStage.show();
 }
+
+    private static final EventController eventController =
+        new EventController();
     public static void navigateTo(String page) {
 
         switch (page) {
 
             case "EVENT":
-                mainScene.setRoot(new EventView(new EventController()));
+                mainScene.setRoot(new EventView(eventController));
                 break;
             case "COMMUNITY":
                 mainScene.setRoot(
