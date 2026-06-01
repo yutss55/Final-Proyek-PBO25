@@ -16,13 +16,11 @@ public class BookingController {
 
     public ObservableList<String> getDaftarRuangan() {
         return FXCollections.observableArrayList(
-            "Cybersecurity",
             "Front-End Development",
             "Back-End Development",
             "Data Science",
             "Mobile App Development",
-            "Artificial Intelligence",
-            "UI/UX Design"
+            "Artificial Intelligence"
         );
     }
 

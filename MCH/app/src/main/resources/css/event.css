@@ -1,0 +1,380 @@
+/* ==========================================
+   EVENT ROOT
+========================================== */
+
+.event-root {
+    -fx-background-color:
+        linear-gradient(
+            to bottom right,
+            #070B2D,
+            #0B184A,
+            #10245C
+        );
+}
+
+/* ==========================================
+   NAVBAR
+========================================== */
+
+.navbar-container {
+    -fx-background-color: rgba(255,255,255,0.03);
+    -fx-border-color: rgba(255,255,255,0.15);
+    -fx-border-radius: 25;
+    -fx-background-radius: 25;
+    -fx-padding: 10 20;
+}
+
+.nav-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+}
+
+.nav-btn:hover {
+    -fx-background-color: rgba(255,255,255,0.07);
+    -fx-background-radius: 14;
+}
+
+.nav-btn-active {
+    -fx-background-color: rgba(255,255,255,0.08);
+    -fx-border-color: white;
+    -fx-border-radius: 18;
+    -fx-background-radius: 18;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-padding: 6 18;
+}
+
+.profile-circle {
+    -fx-background-color: transparent;
+    -fx-border-color: rgba(255,255,255,0.30);
+    -fx-border-radius: 50;
+    -fx-background-radius: 50;
+    -fx-min-width: 40;
+    -fx-min-height: 40;
+    -fx-max-width: 40;
+    -fx-max-height: 40;
+}
+
+/* ==========================================
+   TOOLBAR
+========================================== */
+
+.toolbar-calendar-icon {
+    -fx-font-size: 20px;
+    -fx-padding: 0 4 0 0;
+}
+
+.search-box {
+    -fx-background-color: rgba(255,255,255,0.05);
+    -fx-border-color: rgba(255,255,255,0.12);
+    -fx-background-radius: 14;
+    -fx-border-radius: 14;
+    -fx-padding: 6 12;
+    -fx-pref-width: 270;
+    -fx-max-width: 270;
+}
+
+.search-field {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: #64748B;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-padding: 4 0;
+    -fx-font-size: 13px;
+}
+
+.search-icon {
+    -fx-font-size: 14px;
+    -fx-text-fill: #64748B;
+}
+
+/* ==========================================
+   FILTER BUTTONS
+========================================== */
+
+.filter-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #CBD5E1;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 12;
+    -fx-padding: 9 22;
+}
+
+.filter-btn:hover {
+    -fx-background-color: rgba(255,255,255,0.06);
+}
+
+.filter-btn-active {
+    -fx-background-color:
+        linear-gradient(to right, #7C3AED, #8B5CF6);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-background-radius: 12;
+    -fx-padding: 9 22;
+}
+
+/* ==========================================
+   EVENT GRID PANEL
+========================================== */
+
+.event-grid-panel {
+    -fx-padding: 4 0;
+}
+
+/* ==========================================
+   EVENT CARD
+========================================== */
+
+.event-card {
+    -fx-background-color:
+        linear-gradient(
+            to bottom right,
+            #0F1E54,
+            #0A1640
+        );
+    -fx-border-color: rgba(255,255,255,0.10);
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+    -fx-effect:
+        dropshadow(
+            gaussian,
+            rgba(0,0,0,0.40),
+            16, 0, 0, 5
+        );
+}
+
+.event-card:hover {
+    -fx-border-color: rgba(99,102,241,0.45);
+}
+
+/* ==========================================
+   ICON BOX — base + per-kategori
+========================================== */
+
+.event-icon-box {
+    -fx-background-color: rgba(255,255,255,0.04);
+    -fx-border-color: #2563EB;
+    -fx-border-width: 1.5;
+    -fx-background-radius: 14;
+    -fx-border-radius: 14;
+}
+
+/* Desain → biru */
+.event-icon-box-desain {
+    -fx-background-color: rgba(37,99,235,0.18);
+    -fx-border-color: #2563EB;
+}
+
+/* Coding → teal/hijau seperti di target */
+.event-icon-box-coding {
+    -fx-background-color: rgba(16,185,129,0.18);
+    -fx-border-color: #10B981;
+}
+
+/* Bisnis → ungu */
+.event-icon-box-bisnis {
+    -fx-background-color: rgba(124,58,237,0.18);
+    -fx-border-color: #7C3AED;
+}
+
+/* ==========================================
+   BADGE
+========================================== */
+
+.event-badge {
+    -fx-background-color: rgba(37,99,235,0.25);
+    -fx-text-fill: #60A5FA;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 3 10;
+}
+
+/* Override per kategori */
+.event-badge-coding {
+    -fx-background-color: rgba(16,185,129,0.20);
+    -fx-text-fill: #34D399;
+}
+
+.event-badge-desain {
+    -fx-background-color: rgba(37,99,235,0.25);
+    -fx-text-fill: #60A5FA;
+}
+
+.event-badge-bisnis {
+    -fx-background-color: rgba(124,58,237,0.25);
+    -fx-text-fill: #A78BFA;
+}
+
+.event-badge-penuh {
+    -fx-background-color: rgba(220,38,38,0.25);
+    -fx-text-fill: #F87171;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 3 10;
+}
+
+/* ==========================================
+   TEXT
+========================================== */
+
+.event-title {
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-font-weight: 700;
+}
+
+.event-desc {
+    -fx-text-fill: #CBD5E1;
+    -fx-font-size: 12px;
+}
+
+.event-mentor {
+    -fx-text-fill: #94A3B8;
+    -fx-font-style: italic;
+    -fx-font-size: 11px;
+}
+
+.event-kuota {
+    -fx-text-fill: #CBD5E1;
+    -fx-font-size: 12px;
+}
+
+.event-separator {
+    -fx-background-color: rgba(255,255,255,0.08);
+}
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.event-btn {
+    -fx-background-color:
+        linear-gradient(to right, #8B5CF6, #7C3AED);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-background-radius: 20;
+    -fx-padding: 8 20;
+}
+
+.event-btn:hover {
+    -fx-background-color:
+        linear-gradient(to right, #9D6FFF, #8B4FFF);
+}
+
+.event-btn-success {
+    -fx-background-color: transparent;
+    -fx-border-color: #10B981;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-text-fill: #10B981;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-padding: 8 20;
+}
+
+.event-btn-disabled {
+    -fx-background-color: rgba(255,255,255,0.06);
+    -fx-text-fill: #64748B;
+    -fx-background-radius: 20;
+    -fx-font-size: 12px;
+    -fx-padding: 8 20;
+}
+
+/* ==========================================
+   HISTORY PANEL
+========================================== */
+
+.history-panel {
+    -fx-background-color: rgba(255,255,255,0.03);
+    -fx-border-color: rgba(255,255,255,0.10);
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+    -fx-padding: 20;
+}
+
+.history-title-icon {
+    -fx-font-size: 18px;
+}
+
+.history-title {
+    -fx-text-fill: #7DD3FC;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-letter-spacing: 0.5;
+}
+
+/* ==========================================
+   EMPTY STATE
+========================================== */
+
+.empty-icon {
+    -fx-font-size: 18px;
+    -fx-text-fill: #475569;
+}
+
+.empty-text {
+    -fx-text-fill: #64748B;
+    -fx-font-style: italic;
+    -fx-font-size: 13px;
+}
+
+/* ==========================================
+   TABLE
+========================================== */
+
+.history-table {
+    -fx-background-color: transparent;
+    -fx-border-color: rgba(255,255,255,0.08);
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+.history-table .column-header-background {
+    -fx-background-color: rgba(255,255,255,0.04);
+}
+
+.history-table .column-header {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.history-table .column-header .label {
+    -fx-text-fill: #94A3B8;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.history-table .table-row-cell {
+    -fx-background-color: transparent;
+    -fx-border-color: rgba(255,255,255,0.04);
+}
+
+.history-table .table-row-cell:odd {
+    -fx-background-color: rgba(255,255,255,0.02);
+}
+
+.history-table .table-row-cell .text {
+    -fx-fill: #E2E8F0;
+    -fx-font-size: 12px;
+}
+
+.history-table .table-placeholder {
+    -fx-background-color: transparent;
+}
+.table-view .filler{
+    -fx-background-color: #1A2A66;
+}
+
+.table-view .corner{
+    -fx-background-color: #1A2A66;
+}

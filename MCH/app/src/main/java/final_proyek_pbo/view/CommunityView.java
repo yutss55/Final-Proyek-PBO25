@@ -31,12 +31,16 @@ public class CommunityView extends ScrollPane {
         tileContainer.setHgap(20);
         tileContainer.setVgap(20);
         tileContainer.setPrefColumns(3);
+
+        tileContainer.setStyle("-fx-background-color: transparent;");
+
         root.getChildren().add(tileContainer);
 
         tampilkanPostingan(controller.getKumpulanChatMaster());
 
         setContent(root);
         setFitToWidth(true);
+        setFitToHeight(true);
     }
 
     private void loadCSS() {
@@ -148,7 +152,7 @@ public class CommunityView extends ScrollPane {
         descriptionLabel.getStyleClass().add("collab-desc");
 
         Button btnDetail = new Button("Lihat Detail");
-        btnDetail.getStyleClass().add("collab-card-tag");
+        btnDetail.getStyleClass().add("btn-detail");
 
         btnDetail.setOnAction(e -> {
             final_proyek_pbo.Main.navigateTo("DETAIL_PROYEK");

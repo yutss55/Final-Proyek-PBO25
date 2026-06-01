@@ -1,11 +1,3 @@
-@font-face {
-    font-family: "Inter";
-    src: url("../fonts/Inter_24pt-Bold.ttf");
-}
-@font-face {
-    font-family: "Inter Bold";
-    src: url("../fonts/Inter_28pt-Regular.ttf");
-}
 .root {
     -fx-font-family: "Inter 28pt"; 
 }
@@ -136,16 +128,15 @@
         #0d2060
     );
 }
-
 .navbar-container {
     -fx-background-color: rgba(20,15,80,0.55);
     -fx-border-color: rgba(255,255,255,0.25);
+    -fx-font-weight: medium;
     -fx-border-radius: 35;
     -fx-background-radius: 35;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.35), 25, 0.2, 0, 5);
     -fx-padding: 8 16 8 8;
 }
-
 .nav-btn {
     -fx-background-color: transparent;
     -fx-text-fill: white;
@@ -271,14 +262,6 @@
     -fx-faint-focus-color: transparent;
 }
 
-.main-bg {
-    -fx-background-color: linear-gradient(
-        to bottom right,
-        #0d0a2e,
-        #0a1a4a,
-        #0d2060
-    );
-}
 .button:focused, .menu-card:focused {
     -fx-background-insets: 0, 1, 2;
     -fx-border-color: rgba(99, 102, 241, 0.6);

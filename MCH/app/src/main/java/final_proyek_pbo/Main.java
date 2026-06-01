@@ -1,7 +1,13 @@
 package final_proyek_pbo;
 import final_proyek_pbo.view.LandingView;
 import final_proyek_pbo.view.LoginView;
+import final_proyek_pbo.controller.EventController;
 import final_proyek_pbo.view.RegisterView;
+import final_proyek_pbo.view.RoadmapView;
+import final_proyek_pbo.view.BookingView;
+import final_proyek_pbo.view.CommunityView;
+import final_proyek_pbo.view.DetailProyekView;
+import final_proyek_pbo.view.EventView;
 import final_proyek_pbo.view.HomeView;
 import javafx.application.Application;
 import javafx.scene.layout.BorderPane;
@@ -13,6 +19,8 @@ import javafx.stage.Stage;
 import javafx.scene.text.Font;
 
 public class Main extends Application {
+
+    private static Scene mainScene;
 
     @Override
     public void start(Stage primaryStage) {
@@ -26,10 +34,11 @@ public class Main extends Application {
         );
 
         Scene scene = new Scene(
-               new BorderPane(),
+               new HomeView(),
                 1000,
                 780
         );
+        mainScene = scene;
 
         scene.getStylesheets().add(
                 getClass()
@@ -37,11 +46,49 @@ public class Main extends Application {
                         .toExternalForm()
         );
 
-        showLanding(scene);
+        // showLanding(scene);
 
         primaryStage.setTitle("PINISI");
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+    public static void navigateTo(String page) {
+
+        switch (page) {
+
+            case "EVENT":
+                mainScene.setRoot(new EventView(new EventController()));
+                break;
+            case "COMMUNITY":
+                mainScene.setRoot(
+                        new CommunityView()
+                );
+                break;
+
+            case "DETAIL_PROYEK":
+                mainScene.setRoot(
+                        new DetailProyekView()
+                );
+                break;
+
+            case "BOOKING":
+                mainScene.setRoot(
+                        new BookingView()
+                );
+                break;
+
+            case "ROADMAP":
+                mainScene.setRoot(
+                        new RoadmapView()
+                );
+                break;
+
+            case "HOME":
+                mainScene.setRoot(
+                        new HomeView()
+                );
+                break;
+        }
     }
 
     private void showLanding (Scene scene){

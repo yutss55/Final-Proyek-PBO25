@@ -22,7 +22,7 @@ public class DetailProyekView extends VBox {
         Button btnKembali = new Button("← Kembali");
         btnKembali.getStyleClass().add("back-button"); 
         btnKembali.setOnAction(e -> {
-            final_proyek_pbo.Main.navigateTo("KOMUNITAS");
+        final_proyek_pbo.Main.navigateTo("COMMUNITY");
         });
 
         Label titleLabel = new Label("Detail Pengembangan Proyek IT");
