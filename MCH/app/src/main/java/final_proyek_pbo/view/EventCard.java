@@ -106,6 +106,7 @@ public class EventCard extends HBox {
         daftarButton.setOnAction(e -> {
             boolean berhasil = controller.daftarWorkshop(event);
             if (berhasil) {
+                kuotaLabel.setText("Kuota: " + event.getKuota());
                 updateButtonState(daftarButton);
             }
         });
