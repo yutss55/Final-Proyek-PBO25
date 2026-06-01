@@ -1,10 +1,16 @@
-/* ==========================================
-   1. ROOT & GLOBAL STYLES
-   ========================================== */
 .page-root {
-    -fx-background-color: linear-gradient(to bottom right, #050B2C, #14003B);
-    -fx-font-family: "Poppins";
-    -fx-padding: 30px;
+    -fx-background-color: #0d0926;
+    -fx-min-height: 768px;
+}
+
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
 }
 
 .main-title {
@@ -24,9 +30,6 @@
     -fx-text-fill: white;
 }
 
-/* ==========================================
-   2. BUTTONS
-   ========================================== */
 .book-button,
 .btn-book {
     -fx-background-color: linear-gradient(to right, #7B2FF7, #A14BFF);
@@ -48,10 +51,6 @@
     -fx-cursor: hand;
 }
 
-/* ==========================================
-   3. INPUT FORM CUSTOM (PILIH RUANGAN & TANGGAL)
-   ========================================== */
-/* Dropdown / ComboBox (Utama) */
 .combo-box:focused, 
 .date-picker:focused, 
 .date-picker .text-input:focused {
@@ -60,7 +59,6 @@
     -fx-background-insets: 0;
 }
 
-/* --- COMBO BOX (PILIH RUANGAN) --- */
 .combo-box {
     -fx-background-color: rgba(255, 255, 255, 0.08);
     -fx-background-radius: 8;
@@ -84,35 +82,31 @@
     -fx-background-color: white;
 }
 
-/* --- DATE PICKER (PILIH TANGGAL) - Dibuat Menyatu Sejajar ComboBox --- */
 .date-picker {
-    -fx-background-color: rgba(255, 255, 255, 0.08); /* Background utama luar */
+    -fx-background-color: rgba(255, 255, 255, 0.08);
     -fx-background-radius: 8;
     -fx-border-color: rgba(255, 255, 255, 0.15);
     -fx-border-radius: 8;
     -fx-padding: 0;
 }
 
-/* Kotak teks di dalam DatePicker dibuat transparan agar menyatu */
 .date-picker .text-input {
     -fx-background-color: transparent;
     -fx-text-fill: white;
     -fx-padding: 6 12 6 12;
-    -fx-border-color: transparent; /* Menghapus sekat garis tengah */
+    -fx-border-color: transparent;
 }
 
-/* Tombol kalender dibuat transparan tanpa sekat */
 .date-picker .arrow-button {
     -fx-background-color: transparent;
     -fx-padding: 6 10 6 10;
-    -fx-border-color: transparent; /* Menghapus sekat garis tengah */
+    -fx-border-color: transparent;
 }
 
 .date-picker .arrow-button .arrow {
     -fx-background-color: white;
 }
 
-/* --- POPUP DROPDOWN (SAAT DIKLIK) --- */
 .combo-box-popup .list-view {
     -fx-background-color: #14003B; 
     -fx-background-radius: 8;
@@ -129,9 +123,6 @@
     -fx-background-color: #7B2FF7;
 }
 
-/* ==========================================
-   4. CARDS & STATS
-   ========================================== */
 .card-container,
 .stat-card {
     -fx-background-color: rgba(255, 255, 255, 0.04);
@@ -150,15 +141,11 @@
     -fx-text-fill: #C9C9E2;
 }
 
-/* ==========================================
-   5. TABLE VIEW (BOOKING HISTORY)
-   ========================================== */
 .modern-table {
     -fx-background-color: transparent;
     -fx-border-color: transparent;
 }
 
-/* Header Tabel */
 .modern-table .column-header-background {
     -fx-background-color: linear-gradient(to right, #7B2FF7, #A14BFF);
     -fx-background-radius: 12 12 0 0;
@@ -175,7 +162,6 @@
     -fx-font-size: 14px;
 }
 
-/* Isi Baris Tabel (Row & Cell) */
 .modern-table .virtual-flow {
     -fx-background-color: rgba(255, 255, 255, 0.02);
 }
@@ -195,7 +181,6 @@
     -fx-padding: 10px;
 }
 
-/* Ketika baris tabel diklik/dipilih */
 .modern-table .table-row-cell:selected {
     -fx-background-color: #7B2FF7;
 }
@@ -204,7 +189,6 @@
     -fx-text-fill: white;
 }
 
-/* Tulisan ketika tabel kosong */
 .modern-table .placeholder .label {
     -fx-text-fill: #C9C9E2;
     -fx-font-size: 14px;

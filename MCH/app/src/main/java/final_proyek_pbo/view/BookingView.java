@@ -1,6 +1,9 @@
 package final_proyek_pbo.view;
 
-import final_proyek_pbo.model.Ruangan;
+import java.time.LocalDate;
+
+import final_proyek_pbo.controller.BookingController;
+import final_proyek_pbo.model.BookingSession;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
@@ -11,24 +14,34 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 public class BookingView extends ScrollPane {
+    
     private VBox mainContainer;
-    private TableView<Ruangan> historyTable;
+    private TableView<BookingSession> historyTable;
     private ComboBox<String> roomBox;
+    private ComboBox<String> comboBoxJam;
     private DatePicker datePicker;
     private Button btnBookNow;
     private Button btnBackHome;
+    private BookingController controller;
+    private Label lblTotalRuangan;
+    private Label lblDipinjam;
+    private Label lblMenunggu;
+    private Label lblSelesai;
 
     public BookingView() {
+        this.controller = new BookingController();
+        
         buildMainLayout();
         buildHeaderSection();
         buildHistoryTableSection();
         buildStatisticsCards();
         initRootConfiguration();
+        
+        updateStatistikOtomatis();
     }
 
     private void buildMainLayout() {
@@ -36,6 +49,8 @@ public class BookingView extends ScrollPane {
         mainContainer.setSpacing(30); 
         mainContainer.setPadding(new Insets(35)); 
         mainContainer.getStyleClass().add("page-root");
+        mainContainer.setStyle("-fx-background-color: #0b071e;");
+
         try {
             var cssResource = getClass().getResource("/css/booking.css");
             if (cssResource != null) {
@@ -49,78 +64,85 @@ public class BookingView extends ScrollPane {
     }
 
     private void buildHeaderSection() {
+        btnBackHome = new Button("← Kembali");
+        btnBackHome.getStyleClass().add("back-button");
+        btnBackHome.setOnAction(e -> {
+            final_proyek_pbo.Main.navigateTo("HOME");
+        });
 
-    btnBackHome = new Button("← Kembali");
-    btnBackHome.getStyleClass().add("back-button");
+        Label title = new Label("Form Pemesanan Ruangan PINISI");
+        title.getStyleClass().add("main-title");
 
-    Label title = new Label("Form Pemesanan Ruangan");
-    title.getStyleClass().add("main-title");
+        Label subtitle = new Label("Pilih ruang kolaborasimu sekarang dan mulailah berlayar menuju masa depan tech-savvy!");
+        subtitle.getStyleClass().add("sub-title");
 
-    Label subtitle = new Label("Kelola pemesanan ruangan dengan mudah dan cepat");
-    subtitle.getStyleClass().add("sub-title");
+        VBox titleBox = new VBox(10);
+        titleBox.getChildren().addAll(title, subtitle);
 
-    VBox titleBox = new VBox(10);
-    titleBox.getChildren().addAll(title, subtitle);
+        roomBox = new ComboBox<>();
+        roomBox.setItems(controller.getDaftarRuangan());
+        roomBox.setPromptText("Pilih Ruangan");
+        
+        comboBoxJam = new ComboBox<>();
+        comboBoxJam.setItems(controller.getDaftarJamSpesifik());
+        comboBoxJam.setPromptText("Pilih Jam");
 
-    roomBox = new ComboBox<>();
-    roomBox.getItems().addAll(
-            "Cyber Security",
-            "Front-End Development",
-            "Back-End Development",
-            "Data Science",
-            "Artificial Intelligence",
-            "UI/UX Design"
-    );
-    roomBox.setPromptText("Pilih Ruangan");
+        datePicker = new DatePicker();
+        datePicker.setPromptText("Pilih Tanggal");
 
-    datePicker = new DatePicker();
-    datePicker.setPromptText("Pilih Tanggal");
+        btnBookNow = new Button("📅 Book Now");
+        btnBookNow.getStyleClass().add("book-button");
 
-    btnBookNow = new Button("📅 Book Now");
-    btnBookNow.getStyleClass().add("book-button");
+        btnBookNow.setOnAction(e -> {
+            String room = roomBox.getValue();
+            LocalDate date = datePicker.getValue();
+            String jam = comboBoxJam.getValue();
+            String namaUser = "Ayu Anggraini";
 
-    btnBookNow.setOnAction(e -> {
+            if (room == null || date == null || jam == null) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setHeaderText(null);
+                alert.setContentText("Lengkapi data booking dulu");
+                alert.showAndWait();
+                return;
+            }
 
-        String room = roomBox.getValue();
+            boolean isBentrok = controller.cekJadwalBentrok(room, date, jam);
+            if (isBentrok) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Booking Gagal");
+                alert.setHeaderText(null);
+                alert.setContentText("Maaf, ruangan tersebut sudah dipesan pada tanggal dan jam tersebut!");
+                alert.showAndWait();
+                return;
+            }
 
-        if (room == null || datePicker.getValue() == null) {
+            boolean sukses = controller.buatPemesanan(namaUser, room, date, jam);
+            
+            if (sukses) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Sukses");
+                alert.setHeaderText(null);
+                alert.setContentText("Ruangan berhasil dipesan! Silakan cek tabel history.");
+                alert.showAndWait();
 
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setHeaderText(null);
-            alert.setContentText("Lengkapi data booking dulu");
-            alert.show();
-            return;
-        }
+                updateStatistikOtomatis();
+                
+                roomBox.setValue(null);
+                datePicker.setValue(null);
+                comboBoxJam.setValue(null);
+            }
+        });
 
-        historyTable.getItems().add(
-                new Ruangan(
-                        room,
-                        datePicker.getValue().toString(),
-                        "Menunggu"
-                )
-        );
+        HBox formBox = new HBox(15);
+        formBox.setAlignment(Pos.CENTER_LEFT);
+        formBox.getChildren().addAll(roomBox, datePicker, comboBoxJam, btnBookNow);
 
-        roomBox.setValue(null);
-        datePicker.setValue(null);
-    });
+        VBox headerContainer = new VBox(20);
+        headerContainer.getChildren().addAll(btnBackHome, titleBox, formBox);
 
-    HBox formBox = new HBox(15);
-    formBox.setAlignment(Pos.CENTER_LEFT);
-    formBox.getChildren().addAll(
-            roomBox,
-            datePicker,
-            btnBookNow
-    );
-
-    VBox headerContainer = new VBox(20);
-    headerContainer.getChildren().addAll(
-            btnBackHome,
-            titleBox,
-            formBox
-    );
-
-    mainContainer.getChildren().add(headerContainer);
-}
+        mainContainer.getChildren().add(headerContainer);
+    }
 
     @SuppressWarnings("unchecked")
     private void buildHistoryTableSection() {
@@ -130,24 +152,29 @@ public class BookingView extends ScrollPane {
 
         Label historyTitle = new Label("Booking History");
         historyTitle.getStyleClass().add("section-title");
+        VBox.setMargin(historyTitle, new Insets(15, 0, 5, 5));
 
         historyTable = new TableView<>();
         historyTable.getStyleClass().add("modern-table");
         historyTable.setPrefHeight(250);
         historyTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
-        TableColumn<Ruangan, String> nameCol = new TableColumn<>("Nama Ruangan");
-        nameCol.setCellValueFactory(new PropertyValueFactory<>("namaRuangan"));
+        TableColumn<BookingSession, String> nameCol = new TableColumn<>("Nama Ruangan");
+        nameCol.setCellValueFactory(cellData -> cellData.getValue().namaRuanganProperty());
 
-        TableColumn<Ruangan, String> dateCol = new TableColumn<>("Tanggal Pinjam");
-        dateCol.setCellValueFactory(new PropertyValueFactory<>("tanggalPinjam"));
+        TableColumn<BookingSession, String> dateCol = new TableColumn<>("Tanggal Pinjam");
+        dateCol.setCellValueFactory(cellData -> cellData.getValue().tanggalSewaProperty());
 
-        TableColumn<Ruangan, String> statusCol = new TableColumn<>("Status");
-        statusCol.setCellValueFactory(new PropertyValueFactory<>("status"));
+        TableColumn<BookingSession, String> jamCol = new TableColumn<>("Waktu / Sesi");
+        jamCol.setCellValueFactory(cellData -> cellData.getValue().jamSpesifikProperty());
 
-        historyTable.getColumns().addAll(nameCol, dateCol, statusCol);
-        tableContainer.getChildren().addAll(historyTitle, historyTable);
+        TableColumn<BookingSession, String> statusCol = new TableColumn<>("Status");
+        statusCol.setCellValueFactory(cellData -> cellData.getValue().statusApprovalProperty());
+
+        historyTable.getColumns().addAll(nameCol, dateCol, jamCol, statusCol);
+        historyTable.setItems(controller.getRiwayatBookingMaster());
         
+        tableContainer.getChildren().addAll(historyTitle, historyTable);
         mainContainer.getChildren().add(tableContainer);
     }
 
@@ -155,17 +182,21 @@ public class BookingView extends ScrollPane {
         HBox statsContainer = new HBox();
         statsContainer.setSpacing(20);
 
-        VBox card1 = createStatCard("12", "Total Ruangan");
-        VBox card2 = createStatCard("5", "Dipinjam");
-        VBox card3 = createStatCard("3", "Menunggu");
-        VBox card4 = createStatCard("20", "Selesai");
+        lblTotalRuangan = new Label("0");
+        lblDipinjam = new Label("0");
+        lblMenunggu = new Label("0");
+        lblSelesai = new Label("0");
+
+        VBox card1 = createStatCard(lblTotalRuangan, "Total Ruangan");
+        VBox card2 = createStatCard(lblDipinjam, "Dipinjam");
+        VBox card3 = createStatCard(lblMenunggu, "Menunggu");
+        VBox card4 = createStatCard(lblSelesai, "Selesai");
 
         statsContainer.getChildren().addAll(card1, card2, card3, card4);
         mainContainer.getChildren().add(statsContainer);
     }
 
-    private VBox createStatCard(String number, String text) {
-        Label numberLabel = new Label(number);
+    private VBox createStatCard(Label numberLabel, String text) {
         numberLabel.getStyleClass().add("stat-number");
 
         Label textLabel = new Label(text);
@@ -181,12 +212,37 @@ public class BookingView extends ScrollPane {
         return card;
     }
 
+    private void updateStatistikOtomatis() {
+        int totalAsetLab = controller.getDaftarRuangan().size(); 
+        int jumlahDipinjam = 0;
+        int jumlahMenunggu = 0;
+        int jumlahSelesai = 0;
+
+        for (BookingSession b : this.controller.getRiwayatBookingMaster()) {
+            String status = b.statusApprovalProperty().get();
+            if (status.equalsIgnoreCase("Dipinjam") || status.equalsIgnoreCase("Approved")) {
+                jumlahDipinjam++; 
+            } else if (status.equalsIgnoreCase("Menunggu")) {
+                jumlahMenunggu++;
+            } else if (status.equalsIgnoreCase("Selesai")) {
+                jumlahSelesai++;
+            }
+        }
+
+        lblTotalRuangan.setText(String.valueOf(totalAsetLab));
+        lblDipinjam.setText(String.valueOf(jumlahDipinjam));
+        lblMenunggu.setText(String.valueOf(jumlahMenunggu));
+        lblSelesai.setText(String.valueOf(jumlahSelesai));
+    }
+
     private void initRootConfiguration() {
         this.setFitToWidth(true);
         this.setPadding(new Insets(10));
         this.setStyle("""
                 -fx-background-color: transparent;
-                -fx-background: transparent;
+                -fx-view-order: 1;
+                -fx-viewport-background: transparent;
+                -fx-box-border: transparent;
                 """);
     }
 
@@ -198,7 +254,7 @@ public class BookingView extends ScrollPane {
         return btnBackHome;
     }
 
-    public TableView<Ruangan> getHistoryTable() {
+    public TableView<BookingSession> getHistoryTable() {
         return historyTable;
     }
 }

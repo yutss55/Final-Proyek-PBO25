@@ -1,6 +1,16 @@
 .page-root {
-    -fx-background-color: linear-gradient(to bottom right, #050B2C, #14003B);
-    -fx-padding: 30px;
+    -fx-background-color: #0d0926;
+    -fx-min-height: 720px;
+}
+
+.scroll-pane {
+    -fx-background-color: #0d0926;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: #0d0926;
 }
 
 .main-title {
@@ -15,7 +25,7 @@
 }
 
 .search-field {
-    -fx-background-color: rgba(255,255,255,0.08);
+    -fx-background-color: rgba(255, 255, 255, 0.08);
     -fx-text-fill: white;
     -fx-prompt-text-fill: #bdbdbd;
     -fx-background-radius: 12;
@@ -23,21 +33,38 @@
     -fx-font-size: 14px;
 }
 
-.btn-main {
-    -fx-background-color: #7B2FF7;
-    -fx-text-fill: white;
+.btn-main, 
+.btn-second {
+    -fx-background-color: #211b43;
+    -fx-text-fill: #b3b3b3;
+    -fx-background-radius: 8px;
+    -fx-padding: 8px 16px;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
 }
 
-.btn-second {
-    -fx-background-color: rgba(255,255,255,0.08);
+.btn-active {
+    -fx-background-color: #6C5CE7;
     -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.back-button {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #0f172a;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 30;
+    -fx-border-radius: 30;
+    -fx-padding: 8 18 8 18;
+    -fx-cursor: hand;
 }
 
 .collab-card {
-    -fx-background-color: rgba(35,25,90,0.6);
+    -fx-background-color: rgba(35, 25, 90, 0.6);
     -fx-background-radius: 15;
     -fx-border-radius: 15;
-    -fx-border-color: rgba(255,255,255,0.2);
+    -fx-border-color: rgba(255, 255, 255, 0.2);
     -fx-padding: 20;
 }
 
@@ -50,21 +77,48 @@
 .collab-card-tag {
     -fx-background-color: #5731A5;
     -fx-text-fill: white;
+    -fx-cursor: hand;
 }
 
 .collab-desc {
-    -fx-text-fill: rgba(255,255,255,0.85);
+    -fx-text-fill: rgba(255, 255, 255, 0.85);
 }
-/* .back-button {
-    -fx-background-color: white;
-    -fx-text-fill: #0f172a;
-} */
-.back-button {
-    -fx-background-color: #ffffff;
-    -fx-text-fill: #0f172a;
-    -fx-font-size: 15px;
+.cards-container {
+    -fx-horizontal-gap: 20px;
+    -fx-vertical-gap: 20px;
+    -fx-alignment: top-left;
+}
+.community-card {
+    -fx-background-color: #1a163a;
+    -fx-background-radius: 15px;
+    -fx-border-color: #3b306b;
+    -fx-border-radius: 15px;
+    -fx-border-width: 1px;
+    -fx-pref-width: 280px;
+}
+.card-header-title {
+    -fx-font-size: 16px;
+    -fx-text-fill: white;
     -fx-font-weight: bold;
-    -fx-background-radius: 30;
-    -fx-border-radius: 30;
-    -fx-padding: 8 18 8 18;
+}
+.card-description-text {
+    -fx-font-size: 13px;
+    -fx-text-fill: #b3b3b3;
+}
+.card-detail-button {
+    -fx-background-color: #5c39a8;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+}
+
+.card-detail-button:hover {
+    -fx-background-color: #7f56da;
+}
+.label-kosong-komunitas {
+    -fx-text-fill: #888888;
+    -fx-font-style: italic;
+    -fx-font-size: 14px;
+    -fx-padding: 20px;
 }

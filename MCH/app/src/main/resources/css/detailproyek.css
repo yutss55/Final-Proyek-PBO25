@@ -10,7 +10,8 @@
     -fx-font-weight: bold;
     -fx-background-radius: 30;
     -fx-border-radius: 30;
-    -fx-padding: 8 18 8 18;
+    -fx-padding: 8px 18px;
+    -fx-cursor: hand;
 }
 
 .back-button:hover {
@@ -18,11 +19,11 @@
 }
 
 .collab-card {
-    -fx-background-color: rgba(35,25,90,0.6);
+    -fx-background-color: rgba(35, 25, 90, 0.6);
     -fx-background-radius: 15;
     -fx-border-radius: 15;
-    -fx-border-color: rgba(255,255,255,0.2);
-    -fx-padding: 20;
+    -fx-border-color: rgba(255, 255, 255, 0.2);
+    -fx-padding: 20px;
 }
 
 .collab-card-title {
@@ -33,7 +34,7 @@
 
 .collab-desc {
     -fx-font-size: 14px;
-    -fx-text-fill: rgba(255,255,255,0.85);
+    -fx-text-fill: rgba(255, 255, 255, 0.85);
 }
 
 .start-button {
@@ -42,6 +43,6 @@
     -fx-font-size: 15px;
     -fx-font-weight: bold;
     -fx-background-radius: 15;
-    -fx-padding: 12 25 12 25;
+    -fx-padding: 12px 25px;
+    -fx-cursor: hand;
 }
-
