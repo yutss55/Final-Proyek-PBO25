@@ -72,6 +72,12 @@ public class Main extends Application {
                 );
                 break;
 
+            case "PROFILE":
+                mainScene.setRoot(
+                        new final_proyek_pbo.view.ProfileView()
+                );
+                break;
+
             case "HOME":
                 mainScene.setRoot(
                         new HomeView()

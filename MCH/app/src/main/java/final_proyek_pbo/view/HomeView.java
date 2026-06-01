@@ -43,6 +43,11 @@ public class HomeView extends VBox {
         MenuItem profilItem = new MenuItem("Profile");
         MenuItem logItem = new MenuItem("Logout");
 
+        profilItem.setOnAction(e -> {
+            Main.navigateTo("PROFILE");
+        });
+        
+
         logItem.setOnAction(e->{
             LandingView landing = new LandingView();
             btnCircle.getScene().setRoot(
