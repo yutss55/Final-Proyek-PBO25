@@ -1,13 +1,15 @@
 package final_proyek_pbo.view;
 
-import javax.naming.Context;
 import final_proyek_pbo.Main;
-
+import final_proyek_pbo.data.UserData;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.geometry.Side;
 import javafx.scene.control.Button;
+import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
-import javafx.scene.control.Menu;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -15,14 +17,14 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.geometry.Side;
-import javafx.scene.control.ContextMenu;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.SeparatorMenuItem;
 
 public class HomeView extends VBox {
 
     public HomeView() {
+        if (UserData.currentUser == null) {
+        Main.navigateTo("LOGIN"); 
+        return;
+    }
         this.getStyleClass().add("main-bg");
         this.setSpacing(20);
         this.setFillWidth(true);

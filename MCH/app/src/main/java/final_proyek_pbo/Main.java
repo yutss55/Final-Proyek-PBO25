@@ -23,34 +23,21 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        Font.loadFont(getClass().getResource("/fonts/Inter_28pt-Regular.ttf").toExternalForm(), 14);
-        Font.loadFont(getClass().getResource("/fonts/Inter_24pt-Bold.ttf").toExternalForm(), 14);
-        System.out.println(
-            Font.loadFont(
-                getClass().getResourceAsStream("/fonts/Inter_28pt-Regular.ttf"),
-                14
-            )
-        );
+    Font.loadFont(getClass().getResource("/fonts/Inter_28pt-Regular.ttf").toExternalForm(), 14);
+    Font.loadFont(getClass().getResource("/fonts/Inter_24pt-Bold.ttf").toExternalForm(), 14);
 
-        Scene scene = new Scene(
-               new HomeView(),
-                1000,
-                780
-        );
-        mainScene = scene;
+    Scene scene = new Scene(new LandingView().getView(), 1000, 780); 
+    mainScene = scene;
 
-        scene.getStylesheets().add(
-                getClass()
-                        .getResource("/css/style.css")
-                        .toExternalForm()
-        );
+    scene.getStylesheets().add(
+            getClass().getResource("/css/style.css").toExternalForm()
+    );
+    showLanding(scene);
 
-        // showLanding(scene);
-
-        primaryStage.setTitle("PINISI");
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
+    primaryStage.setTitle("PINISI");
+    primaryStage.setScene(scene);
+    primaryStage.show();
+}
     public static void navigateTo(String page) {
 
         switch (page) {
@@ -86,6 +73,7 @@ public class Main extends Application {
                 mainScene.setRoot(
                         new HomeView()
                 );
+            
                 break;
         }
     }
