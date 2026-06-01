@@ -28,6 +28,24 @@ public class Event extends EntitasKreatif {
         this.penuh = penuh;
         this.terdaftar = terdaftar;
     }
+    
+    public void kurangiKuota() {
+
+        String[] data = kuota.split("/");
+
+        int tersisa = Integer.parseInt(data[0]);
+        int maksimal = Integer.parseInt(data[1]);
+
+        if (tersisa > 0) {
+            tersisa--;
+
+            kuota = tersisa + "/" + maksimal;
+
+            if (tersisa == 0) {
+                penuh = true;
+            }
+        }
+    }
 
     public String getKategori() {
         return kategori;

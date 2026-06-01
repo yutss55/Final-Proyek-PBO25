@@ -25,7 +25,7 @@ public class EventController {
                     "CODING",
                     "Memanfaatkan AI generatif untuk meningkatkan produktivitas kerja dan belajar.",
                     "Rizky Saputra",
-                    "10/15",
+                    "15/15",
                     false,
                     false
             )
@@ -49,7 +49,7 @@ public class EventController {
                     "DESAIN",
                     "Belajar merancang antarmuka aplikasi yang modern dan user-friendly.",
                     "Dimas Pratama",
-                    "12/15",
+                    "15/15",
                     false,
                     false
             )
@@ -61,7 +61,7 @@ public class EventController {
                     "BISNIS",
                     "Mengolah data dan membuat dashboard interaktif untuk pengambilan keputusan.",
                     "Akbar Hidayat",
-                    "8/10",
+                    "10/10",
                     false,
                     false
             )
@@ -86,6 +86,7 @@ public class EventController {
             return false;
         }
 
+        event.kurangiKuota();
         event.setTerdaftar(true);
 
         if (!riwayatPendaftaran.contains(event)) {

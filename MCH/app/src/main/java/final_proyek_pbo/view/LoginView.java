@@ -39,8 +39,8 @@ public class LoginView {
         password.setMaxWidth(300);
         password.getStyleClass().add("login-field");
 
-        Hyperlink forgotPassword = new Hyperlink("forgot password?");
-        forgotPassword.getStyleClass().add("login-link");
+        // Hyperlink forgotPassword = new Hyperlink("forgot password?");
+        // forgotPassword.getStyleClass().add("login-link");
 
         loginbtn = new Button("Log in");
         loginbtn.setPrefWidth(300);
@@ -54,7 +54,7 @@ public class LoginView {
                 greetings,
                 email,
                 password,
-                forgotPassword,
+                // forgotPassword,
                 loginbtn,
                 createAccount
         );
