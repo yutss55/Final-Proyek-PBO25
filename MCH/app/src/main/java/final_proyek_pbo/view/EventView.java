@@ -239,7 +239,7 @@ public class EventView extends ScrollPane {
         Label titleIcon = new Label("\uD83D\uDCC5");
         titleIcon.getStyleClass().add("history-title-icon");
 
-        Label title = new Label("RIWAYAT PENDAFTARAN WORKSHOP KAMU (SIMULASI TABLEVIEW)");
+        Label title = new Label("RIWAYAT PENDAFTARAN WORKSHOP KAMU");
         title.getStyleClass().add("history-title");
 
         titleRow.getChildren().addAll(titleIcon, title);
