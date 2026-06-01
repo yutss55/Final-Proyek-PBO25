@@ -181,7 +181,8 @@ public class HomeView extends VBox {
         HBox topRow = new HBox(iconImg, hSpacer, arrow);
         topRow.setAlignment(Pos.CENTER_LEFT);
         card.getChildren().addAll(topRow, vSpacer, titleBox);
-    
+        card.setCursor(javafx.scene.Cursor.HAND); // Mengubah efek kursor menjadi jari penunjuk
+        card.setOnMouseClicked(e -> action.run());
         return card;
     }
 }

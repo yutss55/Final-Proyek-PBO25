@@ -1,22 +1,21 @@
 package final_proyek_pbo;
-import final_proyek_pbo.view.LandingView;
-import final_proyek_pbo.view.LoginView;
 import final_proyek_pbo.controller.EventController;
-import final_proyek_pbo.view.RegisterView;
-import final_proyek_pbo.view.RoadmapView;
+import final_proyek_pbo.data.UserData;
+import final_proyek_pbo.model.User;
 import final_proyek_pbo.view.BookingView;
 import final_proyek_pbo.view.CommunityView;
 import final_proyek_pbo.view.DetailProyekView;
 import final_proyek_pbo.view.EventView;
 import final_proyek_pbo.view.HomeView;
+import final_proyek_pbo.view.LandingView;
+import final_proyek_pbo.view.LoginView;
+import final_proyek_pbo.view.RegisterView;
+import final_proyek_pbo.view.RoadmapView;
 import javafx.application.Application;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.control.Alert;
-import final_proyek_pbo.model.User;
-import final_proyek_pbo.data.UserData;
 import javafx.scene.Scene;
-import javafx.stage.Stage;
+import javafx.scene.control.Alert;
 import javafx.scene.text.Font;
+import javafx.stage.Stage;
 
 public class Main extends Application {
 

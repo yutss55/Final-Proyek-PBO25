@@ -10,13 +10,13 @@ public class CommunityController {
 
     public CommunityController() {
         if (kumpulanChatMaster.isEmpty()) {
-            kirimPesanKolaborasi("Oki", "Mencari rekan untuk membuat arsitektur backend sistem informasi cerdas berbasis Java.", "[Cari_Tim]");
-            kirimPesanKolaborasi("Jegel", "Proyek desain dashboard Creative Hub Navigator menggunakan CSS styling modern.", "[Cari_Proyek]");
-            kirimPesanKolaborasi("Boris", "Butuh tim ahli Cyber Security untuk pengujian celah keamanan penetrasi server.", "[Cari_Tim]");
-            kirimPesanKolaborasi("Bagas", "Mencari front-end developer untuk mengintegrasikan layout halaman Community menggunakan JavaFX.", "[Cari_Tim]");
-            kirimPesanKolaborasi("Budi", "Pengembangan modul AI / Data Science untuk sistem prediksi stok inventaris cerdas.", "[Cari_Proyek]");
-            kirimPesanKolaborasi("Siti", "Butuh UI/UX Designer untuk membuat wireframe dan mockup aplikasi mobile pencarian magang.", "[Cari_Tim]");
-            kirimPesanKolaborasi("Eko", "Proyek implementasi IoT Smart Gate menggunakan micro-controller terintegrasi database server.", "[Cari_Proyek]");
+            kirimPesanKolaborasi("Dedi Prasetyo", "Mencari rekan untuk membuat arsitektur backend sistem informasi cerdas berbasis Java.", "[Cari_Tim]");
+            kirimPesanKolaborasi("Tika Sasmita", "Proyek desain dashboard Creative Hub Navigator menggunakan CSS styling modern.", "[Cari_Proyek]");
+            kirimPesanKolaborasi("Andi Firdaus", "Butuh tim ahli Cyber Security untuk pengujian celah keamanan penetrasi server.", "[Cari_Tim]");
+            kirimPesanKolaborasi("Suci Ramadani", "Mencari front-end developer untuk mengintegrasikan layout halaman Community menggunakan JavaFX.", "[Cari_Tim]");
+            kirimPesanKolaborasi("Rian Setiawan", "Pengembangan modul AI / Data Science untuk sistem prediksi stok inventaris cerdas.", "[Cari_Proyek]");
+            kirimPesanKolaborasi("Asep Supriyadi", "Butuh UI/UX Designer untuk membuat wireframe dan mockup aplikasi mobile pencarian magang.", "[Cari_Tim]");
+            kirimPesanKolaborasi("Tomi Azhari", "Proyek implementasi IoT Smart Gate menggunakan micro-controller terintegrasi database server.", "[Cari_Proyek]");
         }
     }
 

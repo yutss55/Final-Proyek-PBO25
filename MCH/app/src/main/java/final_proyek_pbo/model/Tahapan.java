@@ -21,11 +21,7 @@ public class Tahapan {
         this.namaFileVideo = namaFileVideo;
         this.daftarSoal = new ArrayList<>();
     }
-
-    public void tambahSoal(Soal soal) {
-        this.daftarSoal.add(soal);
-    }
-
+    public void tambahSoal(Soal soal) { this.daftarSoal.add(soal); }
     public int getNomor() { return nomor; }
     public String getJudul() { return judul; }
     public String getDeskripsi() { return deskripsi; }

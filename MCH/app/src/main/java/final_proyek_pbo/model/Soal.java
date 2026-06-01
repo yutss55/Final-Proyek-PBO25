@@ -10,7 +10,6 @@ public class Soal {
         this.pilihan = pilihan;
         this.indeksJawabanBenar = indeksJawabanBenar;
     }
-
     public String getPertanyaan() { return pertanyaan; }
     public String[] getPilihan() { return pilihan; }
     public int getIndeksJawabanBenar() { return indeksJawabanBenar; }
