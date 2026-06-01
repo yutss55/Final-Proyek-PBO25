@@ -41,7 +41,6 @@ public class HomeView extends VBox {
     private ContextMenu creatprofilMenu(Button btnCircle){
         ContextMenu profilMenu =new ContextMenu();
         MenuItem profilItem = new MenuItem("Profile");
-        MenuItem setItem = new MenuItem("Settings");
         MenuItem logItem = new MenuItem("Logout");
 
         logItem.setOnAction(e->{
@@ -50,7 +49,7 @@ public class HomeView extends VBox {
                 landing.getView()
             );
         });
-        profilMenu.getItems().addAll(profilItem, setItem,new SeparatorMenuItem(), logItem);
+        profilMenu.getItems().addAll(profilItem,new SeparatorMenuItem(), logItem);
 
         return profilMenu;
     }
