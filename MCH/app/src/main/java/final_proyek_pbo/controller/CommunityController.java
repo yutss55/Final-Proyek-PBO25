@@ -39,13 +39,13 @@ public class CommunityController {
         return kumpulanChatMaster;
     }
 
-    public ObservableList<CollabPost> filterChatBerdasarkanTag(String tagKategori) {
-        ObservableList<CollabPost> hasilFilter = FXCollections.observableArrayList();
-        for (CollabPost post : kumpulanChatMaster) {
-            if (post.getJudulPostingan() != null && post.getJudulPostingan().equalsIgnoreCase(tagKategori)) {
-                hasilFilter.add(post);
-            }
+    public ObservableList<CollabPost> filterChatBerdasarkanTag(String tag) {
+    ObservableList<CollabPost> hasilFilter = FXCollections.observableArrayList();
+    for (CollabPost post : kumpulanChatMaster) {
+        if (post.getJudulPostingan().contains(tag)) {
+            hasilFilter.add(post);
         }
-        return hasilFilter;
     }
+    return hasilFilter;
+}
 }

@@ -6,7 +6,6 @@ import java.util.UUID;
 import final_proyek_pbo.model.BookingSession;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
 public class BookingController {
     
     private static final ObservableList<BookingSession> riwayatBookingMaster = FXCollections.observableArrayList();

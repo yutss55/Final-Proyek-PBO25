@@ -23,6 +23,9 @@ public class BookingSession {
         this.keperluan = new SimpleStringProperty(keperluan);
         this.statusApproval = new SimpleStringProperty(statusApproval);
     }
+    public void setStatusApproval(String status) {
+    this.statusApproval.set(status);
+    }
 
     public String getIdBooking() { 
         return idBooking.get(); 

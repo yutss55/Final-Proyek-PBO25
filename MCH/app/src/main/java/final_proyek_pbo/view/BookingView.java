@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 import final_proyek_pbo.controller.BookingController;
 import final_proyek_pbo.model.BookingSession;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
@@ -16,6 +18,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.util.Duration;
 
 public class BookingView extends ScrollPane {
     
@@ -34,6 +37,15 @@ public class BookingView extends ScrollPane {
 
     public BookingView() {
         this.controller = new BookingController();
+        
+        Timeline statusChecker = new Timeline(new KeyFrame(Duration.seconds(10), e -> {
+            for(BookingSession b : controller.getRiwayatBookingMaster()) {
+                if(b.getStatusApproval().equals("Menunggu")) {
+                }
+            }
+        }));
+        statusChecker.setCycleCount(Timeline.INDEFINITE);
+        statusChecker.play();
         
         buildMainLayout();
         buildHeaderSection();
@@ -70,7 +82,7 @@ public class BookingView extends ScrollPane {
             final_proyek_pbo.Main.navigateTo("HOME");
         });
 
-        Label title = new Label("Form Pemesanan Ruangan PINISI");
+        Label title = new Label("Reservasi Sesi Pembelajaran PINISI");
         title.getStyleClass().add("main-title");
 
         Label subtitle = new Label("Pilih ruang kolaborasimu sekarang dan mulailah berlayar menuju masa depan tech-savvy!");
@@ -90,7 +102,7 @@ public class BookingView extends ScrollPane {
         datePicker = new DatePicker();
         datePicker.setPromptText("Pilih Tanggal");
 
-        btnBookNow = new Button("📅 Book Now");
+        btnBookNow = new Button("📚 Daftar Kelas");
         btnBookNow.getStyleClass().add("book-button");
 
         btnBookNow.setOnAction(e -> {
@@ -174,7 +186,24 @@ public class BookingView extends ScrollPane {
         historyTable.getColumns().addAll(nameCol, dateCol, jamCol, statusCol);
         historyTable.setItems(controller.getRiwayatBookingMaster());
         
-        tableContainer.getChildren().addAll(historyTitle, historyTable);
+        Button btnSelesaikan = new Button("Selesaikan Kelas");
+        btnSelesaikan.getStyleClass().add("btn-main");
+
+        btnSelesaikan.setOnAction(e -> {
+            BookingSession selected = historyTable.getSelectionModel().getSelectedItem();
+            if (selected != null) {
+                selected.setStatusApproval("Selesai");
+                historyTable.refresh();
+                updateStatistikOtomatis();
+                Alert alert = new Alert(Alert.AlertType.INFORMATION, "kelas telah diselesaikan!");
+                alert.show();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.WARNING, "Pilih kelas di tabel terlebih dahulu!");
+                alert.show();
+            }
+        });
+
+        tableContainer.getChildren().addAll(historyTitle, historyTable, btnSelesaikan);
         mainContainer.getChildren().add(tableContainer);
     }
 
@@ -198,7 +227,6 @@ public class BookingView extends ScrollPane {
 
     private VBox createStatCard(Label numberLabel, String text) {
         numberLabel.getStyleClass().add("stat-number");
-
         Label textLabel = new Label(text);
         textLabel.getStyleClass().add("stat-text");
 
@@ -238,23 +266,10 @@ public class BookingView extends ScrollPane {
     private void initRootConfiguration() {
         this.setFitToWidth(true);
         this.setPadding(new Insets(10));
-        this.setStyle("""
-                -fx-background-color: transparent;
-                -fx-view-order: 1;
-                -fx-viewport-background: transparent;
-                -fx-box-border: transparent;
-                """);
+        this.setStyle("-fx-background-color: transparent; -fx-view-order: 1; -fx-viewport-background: transparent; -fx-box-border: transparent;");
     }
 
-    public Button getBtnBookNow() {
-        return btnBookNow;
-    }
-
-    public Button getBtnBackHome() {
-        return btnBackHome;
-    }
-
-    public TableView<BookingSession> getHistoryTable() {
-        return historyTable;
-    }
+    public Button getBtnBookNow() { return btnBookNow; }
+    public Button getBtnBackHome() { return btnBackHome; }
+    public TableView<BookingSession> getHistoryTable() { return historyTable; }
 }
