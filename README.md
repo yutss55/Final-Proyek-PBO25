@@ -21,25 +21,40 @@ Aplikasi ini terinspirasi dari Makassar Creative Hub sebagai ruang pengembangan 
 | 🗺️ Roadmap Skill Development | Menyediakan jalur pembelajaran yang terstruktur.                    |
 
 ## 📸 Tampilan Aplikasi
-
+### Landing Page
 <p align="center">
   <img src="docs/landing-page.png" width="700">
 </p>
 
+### Login & Register
+<p align="center">
+  <img src="docs/login-page.png" width="700">
+</p>
+<p align="center">
+  <img src="docs/regist-page.png" width="700">
+</p>
+
+### Home Page
 <p align="center">
   <img src="docs/home-page.png" width="700">
 </p>
 
+### Event & Workshop
 <p align="center">
   <img src="docs/event-page.png" width="700">
 </p>
 
+### Community & Collaboration
 <p align="center">
   <img src="docs/community-page.png" width="700">
 </p>
+
+### Booking Fasilitas
 <p align="center">
   <img src="docs/booking-page.png" width="700">
 </p>
+
+### RoadMap
 <p align="center">
   <img src="docs/roadmap-page.png" width="700">
 </p>
@@ -137,5 +152,16 @@ public String getDeskripsiPeran() {
 | H071251005 | Mukhsin               |
 | H071251073 | Ayu Anggraini         |
 
-```
-```
+<div></div>
+  <a href="https://github.com/fatichmaze">
+    <img src="https://github.com/fatichmaze.png" width="100px;" />
+  </a>
+  &nbsp;&nbsp;&nbsp;
+  <a href="https://github.com/mukhsin27">
+    <img src="https://github.com/mukhsin27.png" width="100px;" />
+  </a>
+  &nbsp;&nbsp;&nbsp;
+  <a href="https://github.com/yutss55">
+    <img src="https://github.com/yutss55.png" width="100px;" />
+  </a>
+</p>
