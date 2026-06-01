@@ -166,3 +166,20 @@
     -fx-horizontal-gap: 20px;
     -fx-vertical-gap: 20px;
 }
+.custom-dialog {
+    -fx-background-color: #0d2c70;
+}
+
+.custom-dialog .label {
+    -fx-text-fill: white;
+}
+
+.custom-dialog .text-field, .custom-dialog .combo-box {
+    -fx-background-color: #1e3a8a;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: #94a3b8;
+}
+
+.custom-dialog .header-panel {
+    -fx-background-color: #0d2c70;
+}
